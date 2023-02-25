@@ -1,20 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import {getDatabase, ref, get} from 'firebase/database';
+import React, {useState} from 'react';
 
-const db = getDatabase();
-const sportsRef = ref(db, "category/0/name")
-var sportsTitle;
-get(sportsRef).then((snapshot) => {
-  if (snapshot.exists()) {
-    sportsTitle = snapshot.val();
-  } else {
-    console.log("No data available");
-  }
-})
-function App() {
+function App(props) {
+  const db = getDatabase();
+  const sportsRef = ref(db, "category/0/name");
+  const [sportsTitle, setTitle] = useState("");
+  get(sportsRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      setTitle(snapshot.val());
+    } else {
+      console.log("No data available");
+    }
+  })
   return (
     <div className="App">
+      <h1>{sportsTitle}</h1>
     </div>
   );
 }
