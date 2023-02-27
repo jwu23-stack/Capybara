@@ -26,3 +26,4 @@ capybara/frontend/build
 capybara/frontend/node_modules
 package-lock.json
 capybara/backend/node_modules
+.DS_Store
