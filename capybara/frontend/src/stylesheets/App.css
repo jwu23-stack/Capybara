@@ -1,0 +1,28 @@
+/* Font style */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: #FBFBFB;
+}
+
+/* Navbar */
+.navbar-inner {
+  background:transparent;
+  background-color: #00332C;
+}
+
+.flex-even {
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  background-color: #00332C;
+  padding: 60px 20px;
+  margin-top: auto;
+}
+
+footer > p {
+  color: #FBFBFB;
+}
