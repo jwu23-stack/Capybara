@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function NavBar() {
+function NavBar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-inner d-flex justify-content-evenly">
-      <div className="flex-even fw-bold align-self-center"> <span className="ps-5">Hobby Go</span></div>
+      <div className="flex-even fw-bold align-self-center"><span id="product-name">Hobbio</span></div>
       <div className="d-flex justify-content-center flex-even me-auto ms-auto">
         <div className="p-3">Explore</div>
         <div className="p-3">Teach</div>
@@ -16,3 +16,5 @@ export function NavBar() {
     </nav>
   )
 }
+
+export default NavBar;

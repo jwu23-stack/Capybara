@@ -3,17 +3,56 @@
 
 body {
   font-family: 'Outfit', sans-serif;
+  color: #475D5B;
+}
+
+h1 {
   color: #FBFBFB;
+}
+
+h2 {
+  font-weight: bold;
 }
 
 /* Navbar */
 .navbar-inner {
-  background:transparent;
+  /* background-color: transparent; */
   background-color: #00332C;
+  color: #FBFBFB;
 }
 
 .flex-even {
   flex: 1;
+}
+
+#product-name {
+  margin-left: 6em;
+}
+
+/* Landing Page */
+#landing-container {
+  display: flex;
+  height: 35em;
+  background-color: #00332C;
+  border-bottom-left-radius: 20em;
+  color: #FBFBFB;
+}
+
+.hero-text {
+  margin-top: 12em;
+  width: 20em;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  margin-left: 6em;
+}
+
+.hero-image {
+  display: flex;
+  flex: 20 1 auto;
+}
+
+#project-goal {
+  margin-top: 100px;
 }
 
 /* Footer */
