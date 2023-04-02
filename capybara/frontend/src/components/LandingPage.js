@@ -4,7 +4,6 @@ import AddIcon from '@mui/icons-material/Add';
 export function Landing() {
   return (
     <div id="landing-page">
-
       {/* Hero text and image */}
       <div className="d-flex" id="landing-container">
         <div className="d-flex flex-column hero-text">
@@ -68,7 +67,7 @@ export function Landing() {
       {/* What Users Say */}
 
       {/* Frequently Asked Questions */}
-      <div className="d-flex flex-column justify-content-evenly mb-5" id="questions">
+      <div className="d-flex flex-column justify-content-evenly" id="questions">
         <h2>Frequently Asked Questions</h2>
         <div className="d-flex flex-row mt-3">
           <div className="d-flex flex-column question-container">
