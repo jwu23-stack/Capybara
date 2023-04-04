@@ -8,9 +8,11 @@ export function SubcategoryPage(props) {
         // create a card component
         // add it to the array of cards
     return (
-        // Render the Cards
-        <div class="card-deck">
-            {classCards}
+        // Render the cards
+        <div className="container text-left">
+            <div className="row row-cols-4">
+                {classCards}
+            </div>
         </div>
     )
 }

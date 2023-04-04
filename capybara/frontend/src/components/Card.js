@@ -1,16 +1,19 @@
-// Props: title, subtitle (optional), location (optional), image
+// Props: title, subtitle (optional), location (optional), image, onClick 
 export function Card(props) {
     return (
         // A card populated with the fields above
-        <div class="col">
-            <div class="card">
-                <img src={props.image} class="card-img-top" alt="test"></img> <!-- TODO: handle alt text -->
-                <div class="card-body">
-                    <h5 class="card-title">{props.title}</h5>
-                    { props.subtitle && <p class="card-text">{props.subtitle}</p> }
+        // TODO: Make the cards go somewhere onClick
+        // TOOO: handle alt text for images
+        // TODO: Add pin image to the left of the location text
+        <div className="col">
+            <div className="card">
+                <img src={props.image} className="card-img-top" alt="default alt text"></img>
+                <div className="card-body">
+                    <h5 className="card-title">{props.title}</h5>
+                    { props.subtitle && <p className="card-text">{props.subtitle}</p> }
                     { props.location && 
-                        <p class="card-text">
-                            <small class="text-body-secondary">{props.location}</small>  <!-- TODO: add pin image -->
+                        <p className="card-text">
+                            <small className="text-body-secondary">{props.location}</small> 
                         </p>
                     }
                 </div>
