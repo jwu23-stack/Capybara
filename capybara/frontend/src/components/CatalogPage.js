@@ -3,9 +3,10 @@ import {Card} from './Card.js';
 // TODO: Handle multiple pages (sobbing)
 export function CatalogPage() {
     const [categoryCards, updateCards] = useState([]); 
+    const [pageNumber, updatePageNumber] = useState(0);
     useEffect(() => {
-        updateCards(pullCards(0));  
-    }, [])
+        updateCards(pullCards(pageNumber));  
+    }, [pageNumber])
     return (
         // Render the cards
         <div className="container text-left">
