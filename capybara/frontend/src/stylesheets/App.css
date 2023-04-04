@@ -1,0 +1,226 @@
+/* Font style */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: #F2F7F5;
+}
+
+h1 {
+  color: #FBFBFB;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+/* Navbar */
+.navbar-inner {
+  /* background-color: transparent; */
+  background-color: #00332C;
+  color: #FBFBFB;
+}
+
+.flex-even {
+  flex: 1;
+}
+
+#product-name {
+  margin-left: 6em;
+}
+
+/* Landing Page */
+#landing-page {
+  color: #00473E;
+}
+
+#landing-container {
+  display: flex;
+  height: 35em;
+  background-color: #00332C;
+  border-bottom-left-radius: 20em;
+  color: #FBFBFB;
+}
+
+.hero-text {
+  margin-top: 12em;
+  width: 20em;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  margin-left: 6em;
+}
+
+.hero-image-container {
+  display: flex;
+  flex: 20 1 auto;
+  margin-left: 20em;
+}
+
+.hero-image {
+  width: 600px;
+  height: 550px;
+  position: absolute;
+  margin-top: 4em;
+}
+
+#project-goal {
+  margin-top: 10em;
+}
+
+.goal-text {
+  padding-left: 30em;
+  padding-right: 30em;
+}
+
+.purpose-container {
+  flex-basis: 0;
+  flex: 1 1 0px;
+}
+
+.purpose-heading {
+  font-weight: bold;
+}
+
+.purpose-img {
+  width: 150px;
+  height: auto;
+  margin: 1em;
+}
+
+.purpose-text {
+  width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* How it works */
+#tutorial {
+  margin-top: 12em;
+}
+
+.tutorial-container {
+  margin-left: 6em;
+}
+
+.tutorial-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+          line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.user-containers {
+  flex-basis: 0;
+  flex: 1 1 0px;
+  margin-right: 40px;
+}
+
+.user-container {
+  border-radius: 10px;
+  flex-basis: 280px;
+  background-color: #FBFBFB;
+  margin: 20px 30px;
+  /* box-shadow: 0 2px 2px 1px rgba(112, 144, 176, 0.2); */
+  filter: drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2));
+}
+
+.user-image {
+  width: auto;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.user-heading {
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px 20px;
+}
+
+.user-text {
+  color: #000000;
+  text-align: start;
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.astext {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+}
+
+.learn-more-btn {
+  color: #FFA8BA;
+}
+
+/* Frequently Asked Questions */
+#questions {
+  margin: 10em 6em;
+}
+
+.question-container {
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 3px solid #475D6B;
+  border-radius: 10px;
+}
+
+.collapse-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10em;
+  margin-left: 1em;
+}
+
+.add-icon {
+  margin-right: 10px;
+}
+
+.collapse-container {
+  width: inherit;
+}
+
+.collapse-transition {
+  transition: transform .4s ease-in-out;
+  transform: rotate(45deg);
+}
+
+.collapse-text {
+  max-width: 50ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+/* Footer */
+footer {
+  background-color: #00332C;
+  padding: 60px 20px;
+  margin-top: auto;
+}
+
+footer > p {
+  color: #FBFBFB;
+}
