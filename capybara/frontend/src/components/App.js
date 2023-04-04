@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import NavBar from '../widget/Navbar.js';
 import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
+import { CatalogPage } from './CatalogPage.js';
 
 import './../stylesheets/App.css';
 
@@ -25,6 +26,7 @@ function App(props) {
       </header>
       <Routes>
         <Route path="/" element={<Landing />}></Route>
+        <Route path="/catalog" element={<CatalogPage />}></Route>
       </Routes>
       <Footer />
     </div>
