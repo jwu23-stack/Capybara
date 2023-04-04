@@ -1,12 +1,18 @@
 import React from 'react';
-// Pull down the categories from Firebase
-// Create a category object for each category we find
-let categories = [];
-
+// TODO: Handle multiple pages (sobbing)
 export function CatalogPage() {
+    let categories = [];
+    // Pull down the categories from Firebase (12 at at time)
+    // For <entry> in <database>
+        // Create a Card component with the correct props
     return (
-        // Populate the catalog page with a category card for each category object in the list
-        // When you click on a card, pass the list of subcategories as props
-        <div></div>
+        // Render the cards
+        <div class="container text-left">
+            <div class="row row-cols-4">
+                {categories}
+            </div>
+        </div>
+        
+        // TODO: add navigation to additional pages (if needed)
     );
 }
