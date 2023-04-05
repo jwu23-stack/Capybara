@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {Card} from './Card.js';
+import { Card } from './Card.js';
+import { pullCards } from './CatalogPage.js';
 // TODO: Handle multiple pages (sobbing)
-export function CatalogPage() {
+export function CategoryPage() {
     const [subcategoryCards, updateCards] = useState([]); 
     const [pageNumber, updatePageNumber] = useState(0);
     useEffect(() => {
-        updateCards(pullCards(pageNumber));  
+        pullCards(pageNumber, "subcategory", updateCards);  // we're gonna need a custom pullCards for this one
     }, [pageNumber])
     return (
         // Render the cards
@@ -17,17 +18,4 @@ export function CatalogPage() {
         
         // TODO: add navigation to additional pages (if needed)
     );
-}
-
-function pullCards(pageNumber) {
-    // Pull down the subcategories from Firebase (12 at at time)
-    // For <entry> in <database>
-        // Create a Card component with the correct props
-        // Add it to the array of Cards
-    
-    let output = [];
-    for (let i = 0; i < 12; i++) { // for  now, just create 12 dummy cards
-        output.push(<Card title="Test" image="../img/apple.png" subtitle="Here's a subtitle"></Card>);
-    }
-    return output;
 }

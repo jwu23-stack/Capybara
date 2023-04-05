@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {Card} from './Card.js';
+import { getDatabase, ref, get } from 'firebase/database';
 // TODO: Handle multiple pages (sobbing)
 export function CatalogPage() {
     const [categoryCards, updateCards] = useState([]); 
     const [pageNumber, updatePageNumber] = useState(0);
     useEffect(() => {
-        updateCards(pullCards(pageNumber));  
+        pullCards(pageNumber, "category", updateCards);  
     }, [pageNumber])
     return (
         // Render the cards
@@ -19,15 +20,29 @@ export function CatalogPage() {
     );
 }
 
-function pullCards(pageNumber) {
+
+export function pullCards(pageNumber, dbPath, updateCards) {
     // Pull down the categories from Firebase (12 at at time)
-    // For <entry> in <database>
-        // Create a Card component with the correct props
-        // Add it to the array of Cards
-    
     let output = [];
-    for (let i = 0; i < 12; i++) { // for  now, just create 12 dummy cards
-        output.push(<Card title="Test" image="../img/apple.png" subtitle="Here's a subtitle"></Card>);
-    }
+    const database = getDatabase();
+    const categoriesRef = ref(database, dbPath)
+    get(categoriesRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            updateCards(createCards(snapshot.val()));
+        } else {
+            console.log("No categories!");
+        }
+    })
+    console.log(output);
     return output;
+}
+
+function createCards(data) {
+    let cardArray = [];
+    // For <entry> in <database>
+    data.forEach((entry) => {
+        // Create a Card component with the correct props and add it to the array of Cards
+        cardArray.push(<Card title={entry.name} image="../img/apple.png"></Card>);
+    })
+    return cardArray;
 }
