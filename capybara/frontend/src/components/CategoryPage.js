@@ -8,9 +8,27 @@ export function CategoryPage(props) {
     const [pageNumber, updatePageNumber] = useState(0);
     useEffect(() => {
         let isMounted = true;
-        if (isMounted) {
-            pullCards(pageNumber, "0,1", updateCards, isMounted);  // "0,1" will be a prop in the future               
-        }
+        const database = getDatabase();
+        const subcategoryRef = ref(database, "subcategory");
+        const ids = "0,1".split(","); // This will be a prop in the future
+        let cards = [];
+        let response = [];
+
+        // Pull all the categories
+        get(subcategoryRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                response = snapshot.val();
+            } else {
+                console.log("No cagtegories!");                     
+            } 
+        }).then(() => {
+            ids.forEach((id) => {
+                cards.push(<Card title={response[id].name} image="../img/apple.png"></Card>);
+            })
+            if (isMounted) {
+                updateCards(cards);
+            }
+        });
         return () => {
             isMounted = false;
         }
@@ -25,22 +43,4 @@ export function CategoryPage(props) {
         </div>
         // TODO: add navigation to additional pages (if needed)
     );
-}
-
-function pullCards(pageNumber, subcategoryIds, updateCards, isMounted) {
-    // Pull down the categories from Firebase (12 at at time)
-    updateCards([]);
-    const database = getDatabase();
-    const baseURL = "/subcategory/";
-    const ids = subcategoryIds.split(",");
-    ids.forEach((id)=> {
-        const subcategoryRef = ref(database, baseURL + id);
-        get(subcategoryRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                updateCards((cards)=>[cards, <Card title={snapshot.val().name} image="../img/apple.png"></Card>]);
-            } else {
-                console.log("No cagtegories!");                     
-            } 
-        });
-    });
 }

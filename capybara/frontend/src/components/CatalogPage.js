@@ -7,9 +7,26 @@ export function CatalogPage() {
     const [pageNumber, updatePageNumber] = useState(0);
     useEffect(() => {
         let isMounted = true;
-        if (isMounted) {
-            pullCards(pageNumber, "category", updateCards);    
-        } 
+        const database = getDatabase();
+        const subcategoryRef = ref(database, "category");
+        let cards = [];
+        let response = [];
+
+        // Pull all the categories
+        get(subcategoryRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                response = snapshot.val();
+            } else {
+                console.log("No cagtegories!");                     
+            } 
+        }).then(() => {
+            response.forEach((entry) => {
+                cards.push(<Card title={entry.name} image="../img/apple.png"></Card>);  
+            })
+            if (isMounted) {
+                updateCards(cards);
+            }
+        });
         return () => {
             isMounted = false;
         }
