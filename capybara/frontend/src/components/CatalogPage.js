@@ -21,8 +21,8 @@ export function CatalogPage() {
                 console.log("No cagtegories!");                     
             } 
         }).then(() => {
-            response.forEach((entry) => {
-                cards.push(<Card title={entry.name} image="../img/apple.png"></Card>);  
+            response.forEach((entry, index) => {
+                cards.push(<Card goTo={"/category/" + index} title={entry.name} image="../img/apple.png"></Card>);  
             })
             if (isMounted) {
                 updateCards(cards);
@@ -42,19 +42,4 @@ export function CatalogPage() {
         
         // TODO: add navigation to additional pages (if needed)
     );
-}
-
-function pullCards(pageNumber, dbPath, updateCards) {
-    // Pull down the categories from Firebase (12 at at time)
-    const database = getDatabase();
-    const categoriesRef = ref(database, dbPath)
-    get(categoriesRef).then((snapshot) => {
-        if (snapshot.exists()) {
-            snapshot.val().forEach((entry) => {
-                updateCards((categoryCards) => [...categoryCards, <Card title={entry.name} image="../img/apple.png"></Card>]);  
-            })
-        } else {
-            console.log("No categories!");
-        }
-    })
 }

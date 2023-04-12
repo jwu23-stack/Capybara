@@ -33,7 +33,7 @@ export function CategoryPage(props) {
                 } 
             }).then(() => { 
                 ids.forEach((id) => {
-                    cards.push(<Card title={response[id].name} image="../img/apple.png"></Card>);
+                    cards.push(<Card goTo={"/subcategory/" + id} title={response[id].name} image="../img/apple.png"></Card>);
                 })
                 if (isMounted) {
                     updateCards(cards);
