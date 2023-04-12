@@ -29,8 +29,8 @@ function App(props) {
       <Routes>
         <Route path="/" element={<Landing />}></Route>
         <Route path="/catalog" element={<CatalogPage />}></Route>
-        <Route path="/category" element={<CategoryPage />}></Route>
-        <Route path="/subcategory" element={<SubcategoryPage />}></Route>
+        <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
+        <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
       </Routes>
       <Footer />
     </div>

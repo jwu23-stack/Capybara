@@ -1,34 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Card } from './Card.js';
 import { getDatabase, ref, get } from 'firebase/database';
 // TODO: Handle multiple pages (sobbing)
+// TODO: Make these cards clickable
 // props: Classes to display (comma separated string), name of category
 export function SubcategoryPage(props) {
     const [classCards, updateCards] = useState([]); 
     const [pageNumber, updatePageNumber] = useState(0);
+    const urlParams = useParams();
     useEffect(() => {
         let isMounted = true;
         const database = getDatabase();
+        const subcategoryRef = ref(database, "subcategory/" + urlParams.subcategoryID);
         const classRef = ref(database, "class");
-        const ids = "0".split(","); // This will be a prop in the future
+        let ids = [];
         let cards = [];
         let response = [];
-
-        // Pull all the categories
-        get(classRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                response = snapshot.val();
+        get(subcategoryRef).then((snapshot) => {
+            if (snapshot.exists() && snapshot.val().classes) {
+                ids = snapshot.val().classes.split(",").map(Number);
             } else {
-                console.log("No cagtegories!");                     
-            } 
-        }).then(() => {
-            ids.forEach((id) => {
-                cards.push(<Card title={response[id].name} image="../img/apple.png"></Card>);
-            })
-            if (isMounted) {
-                updateCards(cards);
+                console.log("No classes!")
+                // TODO: Show some sort of error page
             }
-        });
+        }).then(() => {
+            // Pull all the categories
+            get(classRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    response = snapshot.val();
+                } else {
+                    console.log("No cagtegories!");                     
+                } 
+            }).then(() => {
+                ids.forEach((id) => {
+                    cards.push(<Card title={response[id].name} image="../img/apple.png"></Card>);
+                })
+                if (isMounted) {
+                    updateCards(cards);
+                }
+            });
+        })
         return () => {
             isMounted = false;
         }
