@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from './Card.js';
 import { getDatabase, ref, get } from 'firebase/database';
 // TODO: Handle multiple pages (sobbing)
-// TODO: Make cards clickable
+// TODD: Add header with image
 export function CatalogPage() {
     const [categoryCards, updateCards] = useState([]); 
     const [pageNumber, updatePageNumber] = useState(0);

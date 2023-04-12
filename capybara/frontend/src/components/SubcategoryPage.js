@@ -3,9 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Card } from './Card.js';
 import { getDatabase, ref, get } from 'firebase/database';
 // TODO: Handle multiple pages (sobbing)
-// TODO: Make these cards clickable
-// props: Classes to display (comma separated string), name of category
-export function SubcategoryPage(props) {
+// TODO: Add header with image
+export function SubcategoryPage({ subcategoryName }) {
     const [classCards, updateCards] = useState([]); 
     const [pageNumber, updatePageNumber] = useState(0);
     const urlParams = useParams();
