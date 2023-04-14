@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+// import Container from 'react-bootstrap/Container';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+
 function NavBar(props) {
   const navigate = useNavigate();
 
@@ -24,6 +28,11 @@ function NavBar(props) {
         </Link>
         <div className="p-3">Teach</div>
         <div className="p-3">About Us</div>
+{/* =======
+        <Nav.Link href="/"><div className="p-3">Explore</div></Nav.Link>
+        <Nav.Link href="/TeacherApp.js"><div className="p-3">Teach</div></Nav.Link>
+        <Nav.Link href=""><div className="p-3">About Us</div></Nav.Link>
+>>>>>>> 84f43112 (Make application) */}
       </div>
       <div className="d-flex justify-content-end">
         {props.loginStatus ? (

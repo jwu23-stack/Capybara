@@ -19,8 +19,14 @@ h2 {
 }
 
 /* Navbar */
+
 .navbar-landing {
   background-color: #00332C;
+}
+
+.navbar-inner {
+  /* background-color: transparent; */
+  background-color: #00473E;
   color: #FBFBFB;
   font-size: 20px;
 }
@@ -347,9 +353,54 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   white-space: nowrap;
 }
 
+/* Teacher Application */
+/* button */
+.teacher-application {
+  background-color: #00473E;
+}
+
+.btn-primary {
+  background-color: #FAAE2B;
+  border-color: #FAAE2B;
+  font-family: 'Outfit';
+  font-weight: bold;
+  outline: #FFCF7C;
+  color: #00473E;
+}
+
+.btn-primary:hover {
+  background-color: #FFCF7C;
+  border-color: #FFCF7C;
+  font-family: 'Outfit', sans-serif;
+  font-weight: bold;
+  color: #00473E;
+  outline: #FFCF7C;
+}
+
+/* application */
+.application-intro h2 {
+  font-family: 'Outfit', sans-serif;
+  color: #00473E;
+}
+
+.application-intro p {
+  font-family: 'Outfit', sans-serif;
+  color: #475D5B;
+}
+
+.form-group {
+  font-family: 'Outfit', sans-serif;
+  color: #00473E;
+  font-weight: bold;
+}
+
+.jumbotron {
+
+}
+
 /* Footer */
 footer {
-  background-color: #00332C;
+  background-color: #00473E;
   padding: 60px 20px;
   margin-top: auto;
 }

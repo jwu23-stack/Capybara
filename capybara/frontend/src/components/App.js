@@ -9,6 +9,7 @@ import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
 import { Home } from './HomePage.js';
+import { Application } from './TeacherApp.js';
 
 import './../stylesheets/App.css';
 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn />} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
+        <Route path="/teach" element={<Application />}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
