@@ -33,9 +33,24 @@ app.use(express.static(path.resolve(__dirname, "../frontend/build")))
 
 app.use('/api/v1', apiv1Router);
 
+app.post('/signin', async (req, res) => {
+  try {
+    const { email, password } = req.body
+    if (!(email && password)) {
+      return res.status(400).send("All inputs are required")
+    }
+    return res.json({ status: "success" })
+  } catch {
+    return res.status(500).json({ status: 'error', error: "invalid credentials" })
+  }
+})
+
+app.get('/error', (req, res) => res.status(500).json({ status: 'error', error: "Server Error" }))
+
+app.get('/unauthorized', (req, res) => res.status(401).json({ status: 'error', error: "Permission Denied" }))
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}: https://localhost:${PORT}`)
 })
 
 export default app;
-

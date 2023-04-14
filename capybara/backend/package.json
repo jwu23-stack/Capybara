@@ -21,9 +21,5 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1"
-  },
-  "devDependencies": {
-    "eslint": "^8.34.0",
-    "eslint-plugin-react": "^7.32.2"
   }
 }

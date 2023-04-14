@@ -29,4 +29,5 @@ export function Category(props) {
       <h2 style={titleStyle}>Sports</h2>
     </div>
   )
+
 }
