@@ -5,9 +5,9 @@ export function Application() {
   return (
     <div class="jumbotron"> 
       <div class="container">
-        <div class="p-5 mb-4 bg-light rounded-3">
-          <div className="teacher-application">
-            <div className="application-intro">
+        <div class="p-5 mb-4 rounded-10">
+          <div class="teacher-application">
+            <div class="application-intro">
               <h2>
                 Hobbio Teacher Interest Application Form
               </h2>

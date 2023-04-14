@@ -28,14 +28,8 @@ hr {
 }
 
 /* Navbar */
-
 .navbar-landing {
   background-color: #00332C;
-}
-
-.navbar-inner {
-  /* background-color: transparent; */
-  background-color: #00473E;
   color: #FBFBFB;
   font-size: 20px;
 }
@@ -701,6 +695,10 @@ input:focus {
 }
 
 /* application */
+.teacher-application {
+  background-color: #FFFFFF;
+}
+
 .application-intro h2 {
   font-family: 'Outfit', sans-serif;
   color: #00473E;
@@ -715,6 +713,20 @@ input:focus {
   font-family: 'Outfit', sans-serif;
   color: #00473E;
   font-weight: bold;
+}
+
+.jumbotron {
+  background-color: #00473E;
+}
+
+.container {
+  width: 924px;
+  height: 909px;
+  left: 402px;
+  top: 134px;
+
+  background: #FFFFFF;
+  border-radius: 10px;
 }
 
 /* Footer */
