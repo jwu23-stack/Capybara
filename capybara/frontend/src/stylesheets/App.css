@@ -378,6 +378,10 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 }
 
 /* application */
+.teacher-application {
+  background-color: #FFFFFF;
+}
+
 .application-intro h2 {
   font-family: 'Outfit', sans-serif;
   color: #00473E;
@@ -395,7 +399,18 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 }
 
 .jumbotron {
+  background-color: #00473E;
+  
+}
 
+.container {
+  width: 924px;
+  height: 909px;
+  left: 402px;
+  top: 134px;
+
+  background: #FFFFFF;
+  border-radius: 10px;
 }
 
 /* Footer */
