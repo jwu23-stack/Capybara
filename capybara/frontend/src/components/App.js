@@ -1,9 +1,12 @@
-import { getDatabase, ref, get } from 'firebase/database';
+//import { getDatabase, ref, get } from 'firebase/database';
 import { Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import NavBar from '../widget/Navbar.js';
 import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
+import { CatalogPage } from './CatalogPage.js';
+import { CategoryPage } from './CategoryPage.js';
+import { SubcategoryPage} from './SubcategoryPage.js';
 
 import './../stylesheets/App.css';
 
@@ -25,6 +28,9 @@ function App(props) {
       </header>
       <Routes>
         <Route path="/" element={<Landing />}></Route>
+        <Route path="/catalog" element={<CatalogPage />}></Route>
+        <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
+        <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
       </Routes>
       <Footer />
     </div>

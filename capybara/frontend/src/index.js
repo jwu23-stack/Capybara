@@ -9,8 +9,7 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// TODO: Move these values to a file that's not checked in for security
 const firebaseConfig = {
   apiKey: "AIzaSyBilDzyLdKGh8zuH-Crnl_4Jyj9QdQZLXs",
   authDomain: "sharer-21a0a.firebaseapp.com",
