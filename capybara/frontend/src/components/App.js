@@ -7,6 +7,7 @@ import { Landing } from './LandingPage.js';
 import { CatalogPage } from './CatalogPage.js';
 import { CategoryPage } from './CategoryPage.js';
 import { SubcategoryPage} from './SubcategoryPage.js';
+import { Home } from './HomePage.js';
 
 import './../stylesheets/App.css';
 
@@ -31,6 +32,7 @@ function App(props) {
         <Route path="/catalog" element={<CatalogPage />}></Route>
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
+        <Route path="/home" element={<Home />}></Route>
       </Routes>
       <Footer />
     </div>

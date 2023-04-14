@@ -1,6 +1,9 @@
 import React from 'react';
 
 function NavBar(props) {
+
+  // change styling and layout based on user login status
+
   return (
     <nav className="navbar navbar-expand-lg navbar-inner d-flex justify-content-evenly">
       <div className="flex-even fw-bold align-self-center"><span id="product-name">Hobbio</span></div>
