@@ -10,7 +10,6 @@ import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
 import { Home } from './HomePage.js';
 
-
 import './../stylesheets/App.css';
 
 function App() {
