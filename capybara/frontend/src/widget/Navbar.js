@@ -28,9 +28,11 @@ export function NavBar(props) {
         <Link to="/home" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
           <div className={`p-3 link ${location.pathname === "/home" ? "active-link" : ""}`}>Explore</div>
         </Link>
-        <div className="p-3">Teach</div>
+        <Link to="/teach" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
+          <div className="p-3">Teach</div>
+        </Link>
         <div className="p-3">About Us</div>
-{/* =======
+        {/* =======
         <Nav.Link href="/"><div className="p-3">Explore</div></Nav.Link>
         <Nav.Link href="/TeacherApp.js"><div className="p-3">Teach</div></Nav.Link>
         <Nav.Link href=""><div className="p-3">About Us</div></Nav.Link>
