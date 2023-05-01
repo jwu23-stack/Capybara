@@ -354,11 +354,12 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 }
 
 /* Teacher Application */
-/* button */
+
 .teacher-application {
   background-color: #00473E;
 }
 
+/* button */
 .btn-primary {
   background-color: #FAAE2B;
   border-color: #FAAE2B;
@@ -366,6 +367,9 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   font-weight: bold;
   outline: #FFCF7C;
   color: #00473E;
+  margin: 1em 0;
+  max-width: 200px;
+  padding: 10px 50px;
 }
 
 .btn-primary:hover {
@@ -377,6 +381,14 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   outline: #FFCF7C;
 }
 
+.btn-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  margin-top: 100px;
+}
+
 /* application */
 .teacher-application {
   background-color: #FFFFFF;
@@ -385,22 +397,21 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 .application-intro h2 {
   font-family: 'Outfit', sans-serif;
   color: #00473E;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
 }
 
 .application-intro p {
   font-family: 'Outfit', sans-serif;
   color: #475D5B;
-}
-
-.form-group {
-  font-family: 'Outfit', sans-serif;
-  color: #00473E;
-  font-weight: bold;
+  text-align: center;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 .jumbotron {
   background-color: #00473E;
-  
 }
 
 .container {
@@ -411,6 +422,36 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 
   background: #FFFFFF;
   border-radius: 10px;
+}
+
+.inputTitle {
+  color: #00473e;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.inputTitleState {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.teacher-application .row {
+  margin-top: 60px;
+}
+
+.no-border {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    outline: none;
+}
+
+::placeholder {
+  color: #A8BBB9;
 }
 
 /* Footer */
