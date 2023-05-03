@@ -9,6 +9,7 @@ export function UserAuthSignIn() {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
+    const [failedAuth, setFailedAuth] = useState(false);
     const auth = getAuth();
     
     const handleSignIn = (event) => {
@@ -25,6 +26,7 @@ export function UserAuthSignIn() {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log("Error " + errorCode + ": " + errorMessage);
+            setFailedAuth(true);
           });
     }
     
@@ -57,6 +59,7 @@ export function UserAuthSignIn() {
                 <div className="d-flex flex-column align-items-start">
                     <h1>Welcome back!</h1>
                     <p>Sign into your account</p>
+                    {failedAuth ? <p className= "text-danger">Your username or password is incorrect, try again.</p> : null}
                     <form className="d-flex flex-column form" onSubmit={handleSubmit}>
                         <label className="d-flex flex-column form-label">
                             Email
