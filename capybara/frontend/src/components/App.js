@@ -10,6 +10,7 @@ import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
 import { Home } from './HomePage.js';
 import { Application } from './TeacherApp.js';
+import { AppSubmitted } from './ApplicationSubmitted.js';
 
 import './../stylesheets/App.css';
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="signin" element={<UserAuthSignIn />} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
         <Route path="/teach" element={<Application />}></Route>
+        <Route path="/submitted" element={<AppSubmitted />}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
