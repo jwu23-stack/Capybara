@@ -357,6 +357,17 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 
 .teacher-application {
   background-color: #00473E;
+  border-radius: 10px;
+}
+
+.app-container {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.application-content {
+  margin-left: 7rem;
+  margin-right: 7rem;
 }
 
 /* button */
@@ -370,6 +381,7 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   margin: 1em 0;
   max-width: 200px;
   padding: 10px 50px;
+  margin-bottom: 5rem;
 }
 
 .btn-primary:hover {
@@ -394,6 +406,10 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   background-color: #FFFFFF;
 }
 
+.application-intro {
+  padding-top: 1rem;
+}
+
 .application-intro h2 {
   font-family: 'Outfit', sans-serif;
   color: #00473E;
@@ -406,8 +422,8 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   font-family: 'Outfit', sans-serif;
   color: #475D5B;
   text-align: center;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-left: 120px;
+  margin-right: 120px;
 }
 
 .jumbotron {
@@ -441,13 +457,16 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 }
 
 .no-border {
-    background: transparent;
     border: none;
     border-bottom: 1px solid #000000;
     -webkit-box-shadow: none;
     box-shadow: none;
     border-radius: 0;
     outline: none;
+}
+
+.form-check {
+  color: #475D5B;
 }
 
 ::placeholder {
