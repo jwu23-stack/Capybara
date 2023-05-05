@@ -189,6 +189,19 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   -webkit-box-orient: vertical;
 }
 
+/* Catalog and Category Pages */
+.card-title {
+    font-weight: bold;
+    fill: #00473E;
+}
+
+.banner-container {
+    margin-left: 6em;
+    margin-right: 6em;
+    margin-bottom: 2em;
+    object-fit: contain;
+}
+
 /* How it works */
 #tutorial {
   margin-top: 12em;

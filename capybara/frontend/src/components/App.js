@@ -26,17 +26,7 @@ function App() {
     console.log(sessionStorage);
     console.log("Login status on App", loginStatus);
   }, []);
-
-  // const db = getDatabase();
-  // const sportsRef = ref(db, "category/0/name");
-  // const [sportsTitle, setTitle] = useState("");
-  // get(sportsRef).then((snapshot) => {
-  //   if (snapshot.exists()) {
-  //     setTitle(snapshot.val());
-  //   } else {
-  //     console.log("No data available");
-  //   }
-  // })
+    
   return (
     <div className="App">
       {!isHiddenRoute && <header>
@@ -47,7 +37,7 @@ function App() {
         <Route path="/catalog" element={<CatalogPage />}></Route>
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
-        <Route path="signin" element={<UserAuthSignIn />} />
+        <Route path="signin" element={<UserAuthSignIn/>} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
