@@ -1,7 +1,8 @@
 /* Font style */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
-body, #root {
+body,
+#root {
   font-family: 'Outfit', sans-serif;
   color: #FBFBFB;
 }
@@ -48,9 +49,22 @@ h2 {
   font-size: 20px;
 }
 
-.link:hover, .link:active {
+.sign-up-btn {
+  color: rgba(0, 71, 62, 1);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
   text-decoration: underline;
   text-decoration-color: #00332C;
+  font-weight: bold;
+}
+
+.active-link {
+  text-decoration: underline;
   font-weight: bold;
 }
 
@@ -92,7 +106,10 @@ h2 {
   max-width: 600px;
 }
 
-input[type="text"], input[type="password"], select.form-input, input:focus {
+input[type="text"],
+input[type="password"],
+select.form-input,
+input:focus {
   background: transparent;
   border: none;
   border-bottom: 1px solid #000000;
@@ -184,22 +201,28 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines to show */
-          line-clamp: 3;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
 /* Catalog and Category Pages */
 .card-title {
-    font-weight: bold;
-    fill: #00473E;
+  font-weight: bold;
+  fill: #00473E;
 }
 
 .banner-container {
-    margin-left: 6em;
-    margin-right: 6em;
-    margin-bottom: 2em;
-    object-fit: contain;
+  margin-left: 6em;
+  margin-right: 6em;
+  margin-bottom: 2em;
+  object-fit: contain;
+}
+
+.question-card {
+  border-color: #475D5B;
+  border-width: 2px;
 }
 
 /* How it works */
@@ -215,8 +238,9 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
-          line-clamp: 4;
+  -webkit-line-clamp: 4;
+  /* number of lines to show */
+  line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
@@ -256,15 +280,16 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 7; /* number of lines to show */
+  -webkit-line-clamp: 7;
+  /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 
 .astext {
-  background:none;
-  border:none;
-  margin:0;
-  padding:0;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -281,9 +306,34 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   margin-bottom: 20px;
 }
 
-.card {
-  border: 3px solid #475D6B;
+.category-card {
   border-radius: 10px;
+  flex-basis: 280px;
+  filter: drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2));
+  margin-bottom: 2em;
+}
+
+.col {
+  flex-basis: 315px;
+}
+
+.category-card-title {
+  color: #00473E;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.category-card-body {
+  background-color: #FBFBFB;
+  padding: 0.8em;
+  outline: none;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  filter: drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2));
+}
+
+.category-card-text {
+  font-weight: normal;
 }
 
 .collapse-title {
@@ -311,7 +361,8 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-line-clamp: 5;
+  /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 
@@ -320,13 +371,17 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
 }
 
 /* Home Page */
-.carousel-container {
-  margin: 3em 6em;
+.carousel-container,
+.category-banner {
+  margin: 0 6em;
+  margin-bottom: 3em;
+  margin-top: 1em;
 }
 
-.categories-container, .recommendations-container {
+.categories-container,
+.recommendations-container {
   color: #00473e;
-  margin: 2em 6em;
+  margin: 0 6em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -347,17 +402,50 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   color: #FBFBFB;
 }
 
+.arrow:hover {
+  cursor: pointer;
+}
+
 .catalog-spacer {
   flex-grow: 1;
 }
 
 #category {
-  margin-left: 5em;
+  margin-left: 6em;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: hidden;
   white-space: nowrap;
+}
+
+/* Category Page */
+.category-banner {
+  position: relative;
+  text-align: center;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FBFBFB;
+  font-size: 50px;
+}
+
+#subcategory {
+  margin: 0 5em;
 }
 
 /* Footer */
@@ -367,6 +455,6 @@ footer {
   margin-top: auto;
 }
 
-footer > p {
+footer>p {
   color: #FBFBFB;
 }
