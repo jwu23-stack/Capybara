@@ -473,6 +473,49 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   color: #A8BBB9;
 }
 
+
+/* THANK PAGE */
+.thank {
+  background-color: #F2F7F5;
+  padding: 15%;
+}
+
+.check-icon {
+  color: #00473e;
+  font-size: 80px;
+  justify-content: center;
+  text-align: center;
+}
+
+.thank h1{
+  margin-bottom: 12px;
+  color: #00473E;
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+}
+
+.thank h2{
+  margin-bottom: 12px;
+  color: #00473E;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+.thank p {
+  margin-top: 10px;
+  color: #00473E;
+  font-size: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.thank .btn-block {
+  margin-top: 30px;
+  text-align: center;
+}
+
 /* Footer */
 footer {
   background-color: #00473E;
