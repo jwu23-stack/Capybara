@@ -33,7 +33,7 @@ export function SubcategoryPage({ subcategoryName }) {
                 } 
             }).then(() => {
                 ids.forEach((id) => {
-                    cards.push(<Card title={response[id].name} image="../img/apple.png"></Card>);
+                    cards.push(<Card title={response[id].name} level={response[id].level} teacher={response[id].teacherName} teacherExp={response[id].teacherExp} image={response[id].thumbnail} goTo={"/class/" + id}></Card>);
                 })
                 if (isMounted) {
                     updateCards(cards);
