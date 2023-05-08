@@ -360,6 +360,113 @@ input[type="text"], input[type="password"], select.form-input, input:focus {
   white-space: nowrap;
 }
 
+/* PROFILE SET UP */
+
+.profile-setup {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.app-container {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.profile-setup-content {
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.profile-setup-intro {
+  padding-top: 1rem;
+}
+
+.profile-setup-intro h2 {
+  font-family: 'Outfit', sans-serif;
+  color: #00473E;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.profile-setup-intro p {
+  font-family: 'Outfit', sans-serif;
+  color: #475D5B;
+  text-align: center;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.jumbotron {
+  background-color: #00473E;
+}
+
+.container {
+  width: 924px;
+  height: 909px;
+  left: 402px;
+  top: 134px;
+
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.inputTitle {
+  color: #00473e;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.inputTitleState {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.profile-setup .row {
+  margin-top: 60px;
+}
+
+.no-border {
+    border: none;
+    border-bottom: 1px solid #000000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    outline: none;
+}
+
+/* button */
+.btn-primary {
+  background-color: #FAAE2B;
+  border-color: #FAAE2B;
+  font-family: 'Outfit';
+  font-weight: bold;
+  outline: #FFCF7C;
+  color: #00473E;
+  margin: 1em 0;
+  max-width: 200px;
+  padding: 10px 50px;
+  margin-bottom: 5rem;
+}
+
+.btn-primary:hover {
+  background-color: #FFCF7C;
+  border-color: #FFCF7C;
+  font-family: 'Outfit', sans-serif;
+  font-weight: bold;
+  color: #00473E;
+  outline: #FFCF7C;
+}
+
+.btn-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  margin-top: 100px;
+}
+
 /* Footer */
 footer {
   background-color: #00332C;
