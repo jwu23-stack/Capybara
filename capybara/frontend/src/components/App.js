@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { CatalogPage } from './CatalogPage.js';
 import { CategoryPage } from './CategoryPage.js';
 import { SubcategoryPage} from './SubcategoryPage.js';
-import NavBar  from '../widget/Navbar.js';
+import { NavBar }  from '../widget/Navbar.js';
 import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";

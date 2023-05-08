@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-function NavBar(props) {
+export function NavBar(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
