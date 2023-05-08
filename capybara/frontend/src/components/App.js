@@ -19,6 +19,8 @@ function App() {
   const hiddenRoutes = ["/signin", "/register"];
 
   const isHiddenRoute = hiddenRoutes.includes(location.pathname);
+  const isLanding = location.pathname === "/";
+  const landingStyle = isLanding ? "navbar-landing" : "navbar-default";
 
   useEffect(() => {
     let status = (sessionStorage.getItem("email")) ? true : false;
@@ -30,7 +32,7 @@ function App() {
   return (
     <div className="App">
       {!isHiddenRoute && <header>
-        <NavBar loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
+        <NavBar style={landingStyle} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
       </header>}
       <Routes>
       <Route path="/" element={<Landing loginStatus={loginStatus} />}></Route>

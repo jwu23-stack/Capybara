@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, get } from 'firebase/database';
 import { Carousel } from 'react-responsive-carousel';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -9,35 +9,58 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../stylesheets/App.css';
 
 export function Home(props) {
-  const [cards, setCards] = useState([
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 7 },
-    { id: 8 },
-  ]);
+  const [categoryCards, setCategoryCards] = useState([]);
+  const [mostPopular, setMostPopular] = useState([]);
 
-  const handleMoveRight = () => {
-    setCards(prevCards => {
+  useEffect(() => {
+    let isMounted = true;
+    const database = getDatabase();
+    const subcategoryRef = ref(database, "category");
+    let cards = [];
+    let response = [];
+
+    // Pull all the categories
+    get(subcategoryRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        response = snapshot.val();
+      } else {
+        console.log("No categories!");
+      }
+    }).then(() => {
+      response.forEach((entry, index) => {
+        cards.push(<Category key={index} goTo={"/category/" + index} title={entry.name} image={entry.picture} subcategories={entry.numsubcats}></Category>);
+      })
+
+      // Sort most popular category based on number of subcategories in descending order
+      const sortedCards = [...cards].sort((a, b) => {
+        return b.props.subcategories - a.props.subcategories
+      });
+
+      if (isMounted) {
+        setCategoryCards(cards);
+        setMostPopular(sortedCards);
+      }
+    });
+    return () => {
+      isMounted = false;
+    }
+  }, [])
+
+  const handleMoveLeft = (setCardArray) => {
+    setCardArray(prevCards => {
       const lastCard = prevCards[prevCards.length - 1];
       const newCards = [...prevCards.slice(0, prevCards.length - 1)];
       return [lastCard, ...newCards];
     });
   };
 
-  // Move to Category folder
-  const CardContainer = ({ cards }) => {
-    return (
-      <div id="category">
-        {cards.map((card) => (
-          <Category key={card.id} />
-        ))}
-      </div>
-    );
-  };
+  const handleMoveRight = (setCardArray) => {
+    setCardArray(prevCards => {
+      const firstCard = prevCards[0];
+      const newCards = [...prevCards.slice(1), firstCard]
+      return newCards;
+    })
+  }
 
   return (
     <div id="home">
@@ -68,30 +91,41 @@ export function Home(props) {
         <div className="catalog-spacer"></div>
         <div className="d-flex flex-row">
           <div className="d-flex dot">
-            <ArrowBackIosNewIcon fontSize="small" className="arrow" />
+            <ArrowBackIosNewIcon fontSize="small" className="arrow" onClick={() => handleMoveLeft(setCategoryCards)} />
           </div>
           <div type="button" className="d-flex dot">
-            <ArrowForwardIosIcon fontSize="small" className="arrow" onClick={handleMoveRight} />
+            <ArrowForwardIosIcon fontSize="small" className="arrow" onClick={() => handleMoveRight(setCategoryCards)} />
           </div>
         </div>
       </div>
-      <CardContainer cards={cards} />
+      {/* Categories Cards */}
+      <div id="category">
+        {categoryCards.map((card) => {
+          return <Category key={card.key} goTo={card.props.goTo} title={card.props.title} image={card.props.image} />
+        })}
+      </div>
 
-      {/* Recommendations */}
+      {/* Most Popular */}
       <div className="recommendations-container">
         <div className="d-flex flex-column">
-          <h1>Recommendations</h1>
-          <p>Browse through the categories of hobbies perfectly catered for you based on your interests.</p>
+          <h1>Most Popular</h1>
+          <p>Browse through our most popular categories that you might like to learn.</p>
         </div>
         <div className="catalog-spacer"></div>
         <div className="d-flex flex-row">
           <div className="d-flex dot">
-            <ArrowBackIosNewIcon fontSize="small" className="arrow" />
+            <ArrowBackIosNewIcon fontSize="small" className="arrow" onClick={() => handleMoveLeft(setMostPopular)} />
           </div>
-          <div className="d-flex dot">
-            <ArrowForwardIosIcon fontSize="small" className="arrow" />
+          <div type="button" className="d-flex dot">
+            <ArrowForwardIosIcon fontSize="small" className="arrow" onClick={() => handleMoveRight(setMostPopular)} />
           </div>
         </div>
+      </div>
+      {/* Most Popular Cards */}
+      <div id="category">
+        {mostPopular.map((card) => {
+          return <Category key={card.key} goTo={card.props.goTo} title={card.props.title} image={card.props.image} />
+        })}
       </div>
     </div>
   )

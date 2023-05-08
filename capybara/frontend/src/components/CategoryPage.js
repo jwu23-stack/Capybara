@@ -5,52 +5,71 @@ import { getDatabase, ref, get } from 'firebase/database';
 // TODO: Handle multiple pages (sobbing)
 // TODO: Add header with image
 export function CategoryPage({ subcategoryName }) {
-    const [subcategoryCards, updateCards] = useState([]); 
-    const [pageNumber, updatePageNumber] = useState(0);
-    const urlParams = useParams();
-    useEffect(() => {
-        let isMounted = true;
-        const database = getDatabase();
-        const categoryRef = ref(database, "category/" + urlParams.categoryID);
-        const subcategoryRef = ref(database, "subcategory");
-        let ids = [];
-        let cards = [];
-        let response = [];
-        get(categoryRef).then((snapshot) => {
-            if (snapshot.exists() && snapshot.val().subcategories) {
-                ids = snapshot.val().subcategories.split(",").map(Number);
-            } else {
-                console.log("Invalid category!")
-                // TODO: Show some kind of error page
-            }
-        }).then(() => {
-            get(subcategoryRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                    response = snapshot.val();
-                } else {
-                    console.log("No cagtegories!");                     
-                } 
-            }).then(() => { 
-                ids.forEach((id) => {
-                    cards.push(<Card goTo={"/subcategory/" + id} title={response[id].name} image="../img/apple.png"></Card>);
-                })
-                if (isMounted) {
-                    updateCards(cards);
-                }
-            }); 
-        });
-        return () => {
-            isMounted = false;
-        }
-    }, [pageNumber]);
+  const [subcategoryCards, updateCards] = useState([]);
+  const [pageNumber, updatePageNumber] = useState(0);
+  const [categoryBanner, setCategoryBanner] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const urlParams = useParams();
 
-    return (
-        // Render the cards
-        <div className="container text-left">
-            <div className="row row-cols-4">
-                {subcategoryCards}
-            </div>
+  useEffect(() => {
+    let isMounted = true;
+    const database = getDatabase();
+    const categoryRef = ref(database, "category/" + urlParams.categoryID);
+    const subcategoryRef = ref(database, "subcategory");
+    let cards = [];
+    let response = [];
+    get(categoryRef).then((snapshot) => {
+      if (snapshot.exists() && snapshot.val().subcategories) {
+        setCategoryBanner(snapshot.val().picture);
+        setCategoryName(snapshot.val().name);
+      } else {
+        console.log("Invalid category!")
+      }
+    }).then(() => {
+      get(subcategoryRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          response = snapshot.val();
+        } else {
+          console.log("No cagtegories!");
+        }
+      }).then(() => {
+        response.forEach((subcat, index) => {
+          cards.push(<Card key={index} goTo={"/subcategory/" + index} title={subcat.name} image={subcat.image}></Card>);
+        })
+        if (isMounted) {
+          const sortedCards = cards.slice().sort((a, b) => {
+            const titleA = a.props.title.toUpperCase();
+            const titleB = b.props.title.toUpperCase();
+            if (titleA < titleB) {
+              return -1;
+            }
+            if (titleA > titleB) {
+              return 1;
+            }
+            return 0;
+          });
+          updateCards(sortedCards);
+        }
+      });
+    });
+    return () => {
+      isMounted = false;
+    }
+  }, [pageNumber]);
+
+  return (
+    // Render the cards
+    <div id="category-container">
+      <div className="category-banner">
+        <img src={categoryBanner} className="img-fluid rounded banner-image" alt={categoryName} />
+        <p className="text">{categoryName}</p>
+      </div>
+      <div id="subcategory" className="container text-left">
+        <div className="row row-cols-4">
+          {subcategoryCards}
         </div>
-        // TODO: add navigation to additional pages (if needed)
-    );
+      </div>
+    </div>
+    // TODO: add navigation to additional pages (if needed)
+  );
 }
