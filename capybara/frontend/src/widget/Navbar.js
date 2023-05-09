@@ -17,6 +17,16 @@ function NavBar(props) {
     }
   }
 
+
+  const handleStatusClick2 = () => {
+    if (!props.loginStatus) {
+      navigate("/signup");
+    } else {
+      props.setLoginStatus(false);
+      navigate("/");
+    }
+  }
+
   return (
     <nav className={`navbar navbar-expand-lg ${props.loginStatus ? 'navbar-default' : 'navbar-landing'} d-flex justify-content-evenly`}>
       <Link to="/" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
@@ -29,7 +39,10 @@ function NavBar(props) {
         <Link to="/teach" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
           <div className="p-3">Teach</div>
         </Link>
-        <div className="p-3">About Us</div>
+        <Link to="/about" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
+          <div className="p-3">About Us</div>
+        </Link>
+
         {/* =======
         <Nav.Link href="/"><div className="p-3">Explore</div></Nav.Link>
         <Nav.Link href="/TeacherApp.js"><div className="p-3">Teach</div></Nav.Link>
@@ -43,7 +56,7 @@ function NavBar(props) {
           </Link>
         ) : (
             <div>
-              <button type="button" className="btn btn-outline-light px-3 me-3">Sign Up</button>
+              <button type="button" onClick={handleStatusClick2} className="btn btn-outline-light px-3 me-3">Sign Up</button>
               <button type="button" onClick={handleStatusClick} className="btn btn-warning px-3 me-5">Sign In</button>
             </div>
           )}

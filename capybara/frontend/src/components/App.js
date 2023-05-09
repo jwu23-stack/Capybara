@@ -8,8 +8,10 @@ import NavBar  from '../widget/Navbar.js';
 import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
+import { UserAuthSignUp } from "./SignUp.js";
 import { Home } from './HomePage.js';
-import { Application } from './TeacherApp.js';
+import { TeachInfo } from './TeachInfo.js';
+import { AboutUs } from './AboutUs.js';
 
 import './../stylesheets/App.css';
 
@@ -49,8 +51,10 @@ function App() {
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn />} />
+        <Route path="signup" element={<UserAuthSignUp/>} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
-        <Route path="/teach" element={<Application />}></Route>
+        <Route path="/teach" element={<TeachInfo />}></Route>
+        <Route path="/about" element={<AboutUs/>}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
