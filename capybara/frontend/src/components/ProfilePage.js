@@ -17,13 +17,15 @@ export function Profile(props) {
   // I'm sure there's a better way to do this (maybe show a loading spinner until the request completes?) but
   // I don't really feel like figuring it out right now. -Matt
   
+  // Oh and also if you try and view a profile with an invalid path, it shows the page with all the blanks.
+  
   useEffect(() => {
     let isMounted = true;
     const userRef = ref(db, "/user/" + urlParams.profileID);
     
     onValue(userRef, (snapshot) => {
       const data = snapshot.val();
-      if (isMounted) {
+      if (snapshot.exists() && isMounted) {
         updateLocation(data.location);
         updateMemberSince(data.joinYear);
         updateName(data.firstName);
