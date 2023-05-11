@@ -71,7 +71,7 @@ export function Landing() {
         <h2>Frequently Asked Questions</h2>
         <div className="d-flex flex-row mt-3">
           <div className="d-flex flex-column question-container">
-            <div className="card mb-3">
+            <div className="card mb-3 question-card">
               <h3 className="card-title mt-3 d-flex flex-row align-items-center">
                 <button className="astext collapse-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                   How do I sign up to be a teacher?
@@ -88,7 +88,7 @@ export function Landing() {
               </div>
             </div>
             <div className="spacer"></div>
-            <div className="card">
+            <div className="card question-card">
               <h3 className="card-title mt-3 d-flex flex-row align-items-center">
                 <button className="astext collapse-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   How frequent are classes?
@@ -107,7 +107,7 @@ export function Landing() {
           </div>
           <div className="spacer"></div>
           <div className="d-flex flex-column question-container">
-            <div className="card mb-3">
+            <div className="card mb-3 question-card">
               <h3 className="card-title mt-3 d-flex flex-row align-items-center">
                 <button className="astext collapse-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   How do I pair up with a teacher?
@@ -124,7 +124,7 @@ export function Landing() {
               </div>
             </div>
             <div className="spacer"></div>
-            <div className="card">
+            <div className="card question-card">
               <h3 className="card-title mt-3 d-flex flex-row align-items-center">
                 <button className="astext collapse-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                   Where should I start?
