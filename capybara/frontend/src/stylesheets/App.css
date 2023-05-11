@@ -68,6 +68,14 @@ h2 {
   color: #F2F7F5;
 }
 
+.signup-container .form-input {
+    border-bottom: 1px solid #F2F7F5;
+}
+
+.signup-container .form-input::placeholder {
+  color: #A8BBB9;
+}
+
 .form-container {
   margin-top: 2em;
   margin-right: 6em;
