@@ -7,21 +7,26 @@ import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 export function UserAuthSignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleSignIn = (event) => {
     event.preventDefault();
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed up
-        sessionStorage.setItem("email", true);
-        window.location.href = "/home";
-    })
-      .catch((error) => {
-        setErrorMsg(error.message);
-    })
+    if (password === passwordConfirmation) {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed up
+          sessionStorage.setItem("email", true);
+          window.location.href = "/home";
+      })
+        .catch((error) => {
+          setErrorMsg(error.message);
+      })
+    } else {
+      setErrorMsg("Passwords don't match.");
+    }
   }
 
   function handleChange(event) {
@@ -35,6 +40,10 @@ export function UserAuthSignUp() {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+  };
+  
+  const handlePasswordConfirmationChange = (event) => {
+    setPasswordConfirmation(event.target.value);
   };
 
   const handleTogglePassword = () => {
@@ -69,7 +78,7 @@ export function UserAuthSignUp() {
             <label className="d-flex flex-column form-label">
               Confirm Password
               <div className="d-flex flex-row align-items-center">
-                <input required aria-required="true" type={showPassword ? "text" : "password"} className="form-input" value={password} onChange={handlePasswordChange} placeholder="Your Password" />
+                <input required aria-required="true" type={showPassword ? "text" : "password"} className="form-input" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} placeholder="Your Password" />
                 {showPassword ? (
                   <VisibilityIcon onClick={handleTogglePassword} />
                 ) : (
