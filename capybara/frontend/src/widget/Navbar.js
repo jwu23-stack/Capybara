@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
+// import Container from 'react-bootstrap/Container';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+
 function NavBar(props) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -8,6 +12,16 @@ function NavBar(props) {
   const handleStatusClick = () => {
     if (!props.loginStatus) {
       navigate("/signin");
+    } else {
+      props.setLoginStatus(false);
+      navigate("/");
+    }
+  }
+
+
+  const handleStatusClick2 = () => {
+    if (!props.loginStatus) {
+      navigate("/signup");
     } else {
       props.setLoginStatus(false);
       navigate("/");
@@ -23,8 +37,18 @@ function NavBar(props) {
         <Link to="/home" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
           <div className={`p-3 link ${location.pathname === "/home" ? "active-link" : ""}`}>Explore</div>
         </Link>
-        <div className="p-3">Teach</div>
-        <div className="p-3">About Us</div>
+        <Link to="/teach" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
+          <div className="p-3">Teach</div>
+        </Link>
+        <Link to="/about" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
+          <div className="p-3">About Us</div>
+        </Link>
+
+        {/* 
+        <Nav.Link href="/"><div className="p-3">Explore</div></Nav.Link>
+        <Nav.Link href="/TeacherApp.js"><div className="p-3">Teach</div></Nav.Link>
+        <Nav.Link href=""><div className="p-3">About Us</div></Nav.Link>
+       */}
       </div>
       <div className="d-flex justify-content-end">
         {props.loginStatus ? (
@@ -32,11 +56,11 @@ function NavBar(props) {
             <div className={`p-3 link ${location.pathname === "/profile" ? "active-link" : ""}`}><span id="profile">Profile</span></div>
           </Link>
         ) : (
-          <div>
-            <button type="button" className={`btn ${location.pathname === "/" ? "btn-outline-light" : "btn-outline-secondary"} px-3 me-3`}>Sign Up</button>
-            <button type="button" onClick={handleStatusClick} className="btn btn-warning px-3 me-5">Sign In</button>
-          </div>
-        )}
+            <div>
+              <button type="button" onClick={handleStatusClick2} className="btn btn-outline-light px-3 me-3">Sign Up</button>
+              <button type="button" onClick={handleStatusClick} className="btn btn-warning px-3 me-5">Sign In</button>
+            </div>
+          )}
       </div>
     </nav>
   )

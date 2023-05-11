@@ -8,7 +8,10 @@ import NavBar  from '../widget/Navbar.js';
 import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
+import { UserAuthSignUp } from "./SignUp.js";
 import { Home } from './HomePage.js';
+import { TeachInfo } from './TeachInfo.js';
+import { AboutUs } from './AboutUs.js';
 
 import './../stylesheets/App.css';
 
@@ -28,7 +31,7 @@ function App() {
     console.log(sessionStorage);
     console.log("Login status on App", loginStatus);
   }, []);
-    
+
   return (
     <div className="App">
       {!isHiddenRoute && <header>
@@ -39,8 +42,12 @@ function App() {
         <Route path="/catalog" element={<CatalogPage />}></Route>
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
-        <Route path="signin" element={<UserAuthSignIn/>} />
+        <Route path="signin" element={<UserAuthSignIn />} />
+        <Route path="signup" element={<UserAuthSignUp/>} />
+
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
+        <Route path="/teach" element={<TeachInfo />}></Route>
+        <Route path="/about" element={<AboutUs/>}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
