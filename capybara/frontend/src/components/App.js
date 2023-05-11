@@ -42,7 +42,7 @@ function App() {
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn/>} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
-        <Route path="profile" element={<Profile />}></Route>
+        <Route path="profile/:profileID" element={<Profile />}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>

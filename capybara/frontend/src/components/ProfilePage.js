@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { useParams } from 'react-router-dom';
 
 export function Profile(props) {
+  const db = getDatabase();
+  const [fullName, updateFullName] = useState("");
+  const [location, updateLocation] = useState("");
+  const [memberSince, updateMemberSince] = useState("");
+  const [name, updateName] = useState("");
+  const [description, updateDescription] = useState("")
+  const urlParams = useParams();
+  
+  
+  // NOTE: This implementation means that the page will load with some blanks, and then render the correct info.
+  // I'm sure there's a better way to do this (maybe show a loading spinner until the request completes?) but
+  // I don't really feel like figuring it out right now. -Matt
+  
+  useEffect(() => {
+    let isMounted = true;
+    const userRef = ref(db, "/user/" + urlParams.profileID);
+    
+    onValue(userRef, (snapshot) => {
+      const data = snapshot.val();
+      if (isMounted) {
+        updateLocation(data.location);
+        updateMemberSince(data.joinYear);
+        updateName(data.firstName);
+        updateDescription(data.description);
+        updateFullName(data.firstName + " " + data.lastName);
+      }
+    })
+    
+    return () => {
+      isMounted = false;
+    }
+  }, [])
+  
   return (
     <div id="profile">
       <div className="d-flex flex-column">
@@ -13,23 +48,22 @@ export function Profile(props) {
           {/* User Profile Details */}
           <div className="d-flex flex-column user-details-container">
             <img src={require('../img/default_user.jpeg')} alt="default user" className="profile-pic"></img>
-            <p className="profile-name">Default User</p>
+            <p className="profile-name">{fullName}</p>
             <div className="d-flex flex-row align-self-start general-info">
               <i className="bi bi-geo-alt details-icon"></i>
-              <p className="location">Seattle, WA</p>
+              <p className="location">{location}</p>
             </div>
             <div className="d-flex flex-row align-self-start general-info">
               <i className="bi bi-person details-icon"></i>
-              <p className="location">Member since 2022</p>
+              <p className="location">Member since {memberSince}</p>
             </div>
           </div>
           {/* Edit Button and General info */}
           <div>
             <button type="button" className="btn btn-warning px-3 edit-profile-btn">Edit Profile</button>
             <div className="introductions">
-              <h1 className="fw-bold">Hi, I'm Jason!</h1>
-              <p className="introduction-paragraph">As an out-of-state college student, I'm really interested in trying new things and exploring Seattle!
-                I'd love to do both and meet new people which is why I decided to join Hobbio!</p>
+              <h1 className="fw-bold">Hi, I'm {name}</h1>
+              <p className="introduction-paragraph">{description}</p>
               <hr></hr>
             </div>
             <div className="interests">
