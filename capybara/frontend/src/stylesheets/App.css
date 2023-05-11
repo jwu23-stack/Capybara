@@ -15,6 +15,14 @@ h2 {
   font-weight: bold;
 }
 
+hr {
+  border: 1px solid #00473E;
+}
+
+.hidden {
+  display: none;
+}
+
 #error {
   color: red;
 }
@@ -453,6 +461,109 @@ input:focus {
   margin: 0 5em;
 }
 
+/* Profile page */
+#profile {
+  width: 100%;
+  position: relative;
+}
+
+.banner-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.profile-container {
+  position: absolute;
+  left: 0;
+  margin-top: 12%;
+  margin-left: 6em;
+  margin-right: 6em;
+  margin-bottom: 10em;
+  color: #00473e;
+}
+
+.user-details-container {
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #FBFBFB;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  max-width: auto;
+  max-height: auto;
+  margin: 1.5em 3em;
+  width: 100%;
+}
+
+.profile-banner-img {
+  width: 100%;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  width: 15ch;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.details-icon {
+  font-size: 22px;
+  display: block;
+}
+
+.location {
+  margin: 4px 15px;
+  font-size: 20px;
+}
+
+.general-info {
+  margin: 0.5em 1.5em;
+  align-items: center;
+}
+
+.profile-spacer {
+  height: 20%;
+}
+
+.edit-profile-btn {
+  display: block;
+  margin-left: 55vw;
+  margin-top: calc(10.5vh + 5px);
+  padding: 8px;
+  color: #00473e;
+  font-weight: bold;
+}
+
+.profile-background {
+  height: 40em;
+  color: #F2F7F5;
+}
+
+.introductions {
+  margin-top: 4vh;
+  margin-left: 2em;
+  margin-bottom: 2em;
+}
+
+.introduction-paragraph {
+  margin-left: 2em;
+  font-size: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.interests {
+  margin-left: 2em;
+}
+
 /* Footer */
 footer {
   background-color: #00332C;
@@ -462,4 +573,39 @@ footer {
 
 footer>p {
   color: #FBFBFB;
+}
+
+
+@media (min-width: 768px) {
+  .profile-pic {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .introduction-paragraph {
+    width: 40ch;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .profile-pic {
+    max-width: 140px;
+    max-height: 140px;
+  }
+
+  .introduction-paragraph {
+    width: 45ch;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile-pic {
+    max-width: 160px;
+    max-height: 160px;
+  }
+
+  .introduction-paragraph {
+    width: 65ch;
+  }
 }

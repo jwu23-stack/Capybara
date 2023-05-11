@@ -9,6 +9,7 @@ import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
 import { Home } from './HomePage.js';
+import { Profile } from './ProfilePage.js';
 
 import './../stylesheets/App.css';
 
@@ -28,7 +29,7 @@ function App() {
     console.log(sessionStorage);
     console.log("Login status on App", loginStatus);
   }, []);
-    
+
   return (
     <div className="App">
       {!isHiddenRoute && <header>
@@ -41,6 +42,7 @@ function App() {
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn/>} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
+        <Route path="profile/:profileID" element={<Profile />}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
