@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+import { getDatabase, ref, set } from 'firebase/database';
 
 export function UserAuthSignUp() {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ export function UserAuthSignUp() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-
+  
   const handleSignIn = (event) => {
     event.preventDefault();
     if (password === passwordConfirmation) {
@@ -19,11 +20,24 @@ export function UserAuthSignUp() {
         .then((userCredential) => {
           // Signed up
           sessionStorage.setItem("email", true);
-          window.location.href = "/home";
-      })
+          console.log(userCredential.user.uid);
+          const db = getDatabase();
+          set(ref(db, "/user/" + userCredential.user.uid), {
+            classesTaught: "",
+            description: "",
+            hobbies: "",
+            isteacher: "",
+            location: "",
+            name: "",
+            profilepic: ""
+          }).then(() => {
+            window.location.href = "/home";
+          });
+        })
         .catch((error) => {
+          console.log("error:", error.message);
           setErrorMsg(error.message);
-      })
+        })
     } else {
       setErrorMsg("Passwords don't match.");
     }
