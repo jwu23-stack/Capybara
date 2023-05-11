@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 
 export function UserAuthSignUp() {
   const [email, setEmail] = useState("");
@@ -11,27 +12,16 @@ export function UserAuthSignUp() {
 
   const handleSignIn = (event) => {
     event.preventDefault();
-    fetch("/signin", {
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-        password: password
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        sessionStorage.setItem("email", true);
+        window.location.href = "/home";
     })
-      .then(response => response.json())
-      .then(jsonData => {
-        if (jsonData.status === "success") {
-          setErrorMsg("")
-          sessionStorage.setItem("email", true);
-          window.location.href = "/home";
-        }
-      })
-      .catch(error => {
-        setErrorMsg("Something went wrong. Try Again")
-      });
+      .catch((error) => {
+        setErrorMsg(error.message);
+    })
   }
 
   function handleChange(event) {
