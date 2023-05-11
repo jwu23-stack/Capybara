@@ -29,17 +29,7 @@ function App() {
     console.log(sessionStorage);
     console.log("Login status on App", loginStatus);
   }, []);
-
-  // const db = getDatabase();
-  // const sportsRef = ref(db, "category/0/name");
-  // const [sportsTitle, setTitle] = useState("");
-  // get(sportsRef).then((snapshot) => {
-  //   if (snapshot.exists()) {
-  //     setTitle(snapshot.val());
-  //   } else {
-  //     console.log("No data available");
-  //   }
-  // })
+  
   return (
     <div className="App">
       {!isHiddenRoute && <header>
