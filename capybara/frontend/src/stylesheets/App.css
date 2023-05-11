@@ -104,6 +104,7 @@ hr {
 
 .signup-container .form-input {
     border-bottom: 1px solid #F2F7F5;
+    color: #FFFFFF
 }
 
 .signup-container .form-input::placeholder {
