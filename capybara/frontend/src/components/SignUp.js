@@ -29,7 +29,8 @@ export function UserAuthSignUp() {
             isteacher: "",
             location: "",
             name: "",
-            profilepic: ""
+            profilepic: "",
+            joinYear: new Date().getFullYear()
           }).then(() => {
             window.location.href = "/home";
           });
