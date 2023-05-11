@@ -213,6 +213,11 @@ input:focus {
   fill: #00473E;
 }
 
+.category-card-text {
+  margin-bottom: 0em;
+  color: #475D5B;
+}
+
 .banner-container {
   margin-left: 6em;
   margin-right: 6em;
