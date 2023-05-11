@@ -39,6 +39,15 @@ hr {
   font-size: 20px;
 }
 
+.navbar-logo {
+  flex-basis: 200px;
+  margin-left: 5em;
+}
+
+.navbar-logo-img {
+  width: 100%;
+}
+
 .flex-even {
   flex: 1;
 }
@@ -53,12 +62,22 @@ hr {
 
 .navbar-auth {
   color: #00473E;
-  margin-top: 1em;
   font-size: 20px;
+  margin-right: 2.5em;
 }
 
-.sign-up-btn {
-  color: rgba(0, 71, 62, 1);
+.auth-btn {
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.auth-btn:nth-child(2), .btn-hover {
+  color: #00473E;
+}
+
+.btn-hover:hover {
+  color: #f2f7f5;
+  background-color: #00473E;
 }
 
 .link {
