@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/jwu23-stack/Capybara/static/css/main.1651c7c4.css",
+    "main.js": "/jwu23-stack/Capybara/static/js/main.79f06ad4.js",
+    "static/js/787.3ecd7fac.chunk.js": "/jwu23-stack/Capybara/static/js/787.3ecd7fac.chunk.js",
+    "static/media/rockclimbing.jpg": "/jwu23-stack/Capybara/static/media/rockclimbing.65e821c3e6cb94bd5d80.jpg",
+    "static/media/paintbrush.jpg": "/jwu23-stack/Capybara/static/media/paintbrush.1b6b81d3862aba2582f2.jpg",
+    "static/media/carousel_04.png": "/jwu23-stack/Capybara/static/media/carousel_04.2d0340ae2af0c656402d.png",
+    "static/media/carousel_02.png": "/jwu23-stack/Capybara/static/media/carousel_02.0447c6e59fe6d658ae59.png",
+    "static/media/carousel_01.png": "/jwu23-stack/Capybara/static/media/carousel_01.fb3fa4161855fa59baaa.png",
+    "static/media/profile_background.png": "/jwu23-stack/Capybara/static/media/profile_background.ebb232171a64a375e51a.png",
+    "static/media/carousel_03.png": "/jwu23-stack/Capybara/static/media/carousel_03.a6c22a721221b152e147.png",
+    "static/media/bootstrap-icons.woff?": "/jwu23-stack/Capybara/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/jwu23-stack/Capybara/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
+    "static/media/login.png": "/jwu23-stack/Capybara/static/media/login.9a0d7795d4ca0635bce8.png",
+    "static/media/hero-img.png": "/jwu23-stack/Capybara/static/media/hero-img.dfa65a490f7dbbdc62a5.png",
+    "static/media/navbar-black.png": "/jwu23-stack/Capybara/static/media/navbar-black.ebda51ed82de41dfde5f.png",
+    "static/media/navbar-white.png": "/jwu23-stack/Capybara/static/media/navbar-white.1e8ce47888e63743012a.png",
+    "static/media/painting.png": "/jwu23-stack/Capybara/static/media/painting.c762b9cf0ca7f1d7c459.png",
+    "static/media/default_user.jpeg": "/jwu23-stack/Capybara/static/media/default_user.4aa827c3440249505e81.jpeg",
+    "static/media/handshake.png": "/jwu23-stack/Capybara/static/media/handshake.2670f2547ba4baaf515d.png",
+    "index.html": "/jwu23-stack/Capybara/index.html",
+    "main.1651c7c4.css.map": "/jwu23-stack/Capybara/static/css/main.1651c7c4.css.map",
+    "main.79f06ad4.js.map": "/jwu23-stack/Capybara/static/js/main.79f06ad4.js.map",
+    "787.3ecd7fac.chunk.js.map": "/jwu23-stack/Capybara/static/js/787.3ecd7fac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1651c7c4.css",
+    "static/js/main.79f06ad4.js"
+  ]
+}
