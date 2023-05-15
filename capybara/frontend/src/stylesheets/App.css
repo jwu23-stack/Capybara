@@ -71,7 +71,8 @@ hr {
   font-family: inherit;
 }
 
-.auth-btn:nth-child(2), .btn-hover {
+.auth-btn:nth-child(2),
+.btn-hover {
   color: #00473E;
 }
 
@@ -188,14 +189,13 @@ input:focus {
 
 .hero-image-container {
   display: flex;
-  flex: 20 1 auto;
   margin-left: 20em;
+  margin-right: 6em;
 }
 
 .hero-image {
   width: 600px;
   height: 550px;
-  position: absolute;
   margin-top: 4em;
 }
 
@@ -652,12 +652,12 @@ input:focus {
 }
 
 .no-border {
-    border: none;
-    border-bottom: 1px solid #000000;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-radius: 0;
-    outline: none;
+  border: none;
+  border-bottom: 1px solid #000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
 }
 
 /* button */
