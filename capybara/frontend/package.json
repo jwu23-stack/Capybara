@@ -2,6 +2,7 @@
   "name": "capstone",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jwu23-stack.github.io/Capybara",
   "proxy": "http://localhost:3001",
   "engines": {
     "node": "~14"
@@ -16,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap-icons": "^1.10.5",
     "firebase": "^9.17.1",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
@@ -24,6 +26,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
