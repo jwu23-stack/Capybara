@@ -1,10 +1,14 @@
 /* Font style */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
+html, body, #root, .App {
+  height: 100%;
+}
+
 body,
 #root {
   font-family: 'Outfit', sans-serif;
-  color: #FBFBFB;
+  color: #040202;
 }
 
 h1 {
@@ -24,19 +28,23 @@ hr {
   display: none;
 }
 
+.font-size-20 {
+  font-size: 20px;
+}
+
 #error {
   color: red;
 }
 
 /* Navbar */
 .navbar-landing {
-  background-color: #00332C;
+  background-color: #00473e;
   color: #FBFBFB;
   font-size: 20px;
 }
 
 .navbar-default {
-  color: #00332C;
+  color: #00473e;
   font-size: 20px;
 }
 
@@ -157,8 +165,8 @@ input:focus {
   outline: none;
 }
 
-#login-pic {
-  width: 500px;
+#login-pic, #signup-pic {
+  width: 600px;
   height: 500px;
   max-width: 100%;
   max-height: 100%;
@@ -173,22 +181,14 @@ input:focus {
 }
 
 /* Sign Up Page*/
-.signup {
+#signup {
+  height: 100%;
   background-color: #00473E;
-}
-
-#signup-pic {
-  width: 600px;
-  height: 500px;
-  max-width: 100%;
-  max-height: 100%;
-  margin-top: 7em;
 }
 
 .signup-info {
   padding-left: 150px;
   margin-top: 3em;
-
 }
 
 .signup-btn {
@@ -201,14 +201,38 @@ input:focus {
   border-color: #FFA8BA;
 }
 
-.signup-style {
-  color: white;
+.signup-color, .form-container .signup-color {
+  color: #F2F7F5;
+}
+
+.signup-form-label {
+  font-size: 18px;
+  color: #F2F7F5;
+  font-weight: bold;
+  margin: 1.5em 0;
 }
 
 .signup-container {
   margin-right: 6em;
   margin-left: 6em;
   flex: 1;
+}
+
+input[type="text"].signup-style,
+input[type="password"].signup-style,
+select.form-input.signup-style,
+input.signup-style:focus {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #F2F7F5;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
+}
+
+input.signup-style::selection, input.signup-style::placeholder, input.signup-style {
+  color: #F2F7F5;
 }
 
 /* Landing Page */
@@ -219,7 +243,7 @@ input:focus {
 #landing-container {
   display: flex;
   height: 35em;
-  background-color: #00332C;
+  background-color: #00473e;
   border-bottom-left-radius: 20em;
   color: #FBFBFB;
 }

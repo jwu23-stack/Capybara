@@ -63,7 +63,7 @@ export function UserAuthSignIn() {
       <div className="d-flex flex-row align-items-center form-container">
         <div className="d-flex flex-column align-items-start">
           <h1>Welcome back!</h1>
-          <p>Sign into your account</p>
+          <p className="font-size-20">Sign into your account</p>
           {failedAuth ? <p className="text-danger">Your username or password is incorrect, try again.</p> : null}
           <form className="d-flex flex-column form" onSubmit={handleSubmit}>
             <label className="d-flex flex-column form-label">
@@ -84,7 +84,7 @@ export function UserAuthSignIn() {
             <button type="button" className="btn btn-warning login-btn" onClick={handleSignIn}>Login</button>
             <div id="error">{errorMsg}</div>
             <p>Don't have an account?
-              <Link to="/register" style={{ color: "#FFA8BA", textDecoration: "inherit", marginLeft: "2px" }}>
+              <Link to="/signup" style={{ color: "#FFA8BA", textDecoration: "inherit", marginLeft: "2px" }}>
                 Create an account
               </Link>
             </p>

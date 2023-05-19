@@ -21,7 +21,7 @@ function App() {
   const location = useLocation();
 
   const [loginStatus, setLoginStatus] = useState(false);
-  const hiddenRoutes = ["/signin", "/register"];
+  const hiddenRoutes = ["/signin", "/signup"];
 
   const isHiddenRoute = hiddenRoutes.includes(location.pathname);
   const isLanding = location.pathname === "/";
@@ -49,7 +49,7 @@ function App() {
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
         <Route path="profile/:profileID" element={<Profile />}></Route>
         <Route path="/teach" element={<TeachInfo />}></Route>
-        <Route path="/about" element={<AboutUs/>}></Route>
+        <Route path="about" element={<AboutUs/>}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
