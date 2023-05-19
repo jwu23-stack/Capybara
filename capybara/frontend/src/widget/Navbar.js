@@ -38,17 +38,11 @@ export function NavBar(props) {
           <div className={`p-3 link ${location.pathname === "/home" ? "active-link" : ""}`}>Explore</div>
         </Link>
         <Link to="/teach" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-          <div className="p-3">Teach</div>
+          <div className={`p-3 link ${location.pathname === "/teach" ? "active-link" : ""}`}>Teach</div>
         </Link>
         <Link to="/about" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-          <div className="p-3">About Us</div>
+          <div className={`p-3 link ${location.pathname === "/about" ? "active-link" : ""}`}>About Us</div>
         </Link>
-
-        {/* =======
-        <Nav.Link href="/"><div className="p-3">Explore</div></Nav.Link>
-        <Nav.Link href="/TeacherApp.js"><div className="p-3">Teach</div></Nav.Link>
-        <Nav.Link href=""><div className="p-3">About Us</div></Nav.Link>
->>>>>>> 84f43112 (Make application) */}
       </div>
       <div className="d-flex justify-content-end navbar-auth">
         {props.loginStatus ? (

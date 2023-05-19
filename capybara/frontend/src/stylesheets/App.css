@@ -663,8 +663,9 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 }
 
 .app-container {
-  margin-left: 15rem;
-  margin-right: 15rem;
+  margin: 2em 15rem;
+  padding: 20px;
+  padding-bottom: 40px;
 }
 
 .profile-setup-content {
@@ -690,10 +691,6 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   text-align: center;
   margin-left: 120px;
   margin-right: 120px;
-}
-
-.jumbotron {
-  background-color: #00473E;
 }
 
 /* Remove */

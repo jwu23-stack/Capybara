@@ -35,7 +35,7 @@ export function UserAuthSignUp() {
             profilepic: "",
             joinYear: new Date().getFullYear()
           }).then(() => {
-            window.location.href = "/home";
+            window.location.href = "/onboarding";
           });
         })
         .catch((error) => {

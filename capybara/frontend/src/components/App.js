@@ -11,7 +11,7 @@ import { UserAuthSignIn } from "./UserAuth.js";
 import { UserAuthSignUp } from "./SignUp.js";
 import { Home } from './HomePage.js';
 import { Profile } from './ProfilePage.js';
-import { Application } from './TeacherApp.js';
+import { Onboarding } from './ProfileSetUp.js';
 import { TeachInfo } from './TeachInfo.js';
 import { AboutUs } from './AboutUs.js';
 
@@ -21,7 +21,7 @@ function App() {
   const location = useLocation();
 
   const [loginStatus, setLoginStatus] = useState(false);
-  const hiddenRoutes = ["/signin", "/signup"];
+  const hiddenRoutes = ["/signin", "/signup", "/onboarding"];
 
   const isHiddenRoute = hiddenRoutes.includes(location.pathname);
   const isLanding = location.pathname === "/";
@@ -46,6 +46,7 @@ function App() {
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn/>} />
         <Route path="signup" element={<UserAuthSignUp/>} />
+        <Route path="onboarding" element={<Onboarding />} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
         <Route path="profile/:profileID" element={<Profile />}></Route>
         <Route path="/teach" element={<TeachInfo />}></Route>
