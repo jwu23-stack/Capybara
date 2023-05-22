@@ -10,6 +10,7 @@ export function UserAuthSignUp() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const location = useLocation();
 
@@ -68,6 +69,10 @@ export function UserAuthSignUp() {
     setShowPassword(!showPassword);
   };
 
+  const handleConfirmPassword = () => {
+    setShowPassword2(!showPassword2);
+  };
+
   return (
     <div id="signup">
       <nav className="navbar navbar-expand-lg navbar-auth d-flex justify-content-start" style={{ padding: "15px 0" }}>
@@ -104,11 +109,11 @@ export function UserAuthSignUp() {
             <label className="d-flex flex-column signup-form-label">
               Confirm Password
               <div className="d-flex flex-row align-items-center">
-                <input required aria-required="true" type={showPassword ? "text" : "password"} className="form-input signup-style" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} placeholder="Your Password" />
-                {showPassword ? (
-                  <VisibilityIcon onClick={handleTogglePassword} />
+                <input required aria-required="true" type={showPassword2 ? "text" : "password"} className="form-input signup-style" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} placeholder="Your Password" />
+                {showPassword2 ? (
+                  <VisibilityIcon onClick={handleConfirmPassword} />
                 ) : (
-                  <VisibilityOffIcon onClick={handleTogglePassword} />
+                  <VisibilityOffIcon onClick={handleConfirmPassword} />
                 )}
               </div>
             </label>

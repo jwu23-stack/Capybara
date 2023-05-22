@@ -105,6 +105,10 @@ hr {
   font-weight: bold;
 }
 
+div.default-link:hover {
+  text-decoration-color: #F2F7F5;
+}
+
 /* Authentication */
 #auth {
   color: #F2F7F5;
@@ -236,7 +240,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 }
 
 /* Landing Page */
-#landing-page {
+#landing-page, #aboutus {
   color: #00473E;
 }
 
@@ -333,6 +337,9 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 /* How it works */
 #tutorial {
   margin-top: 12em;
+  margin-right: 6em;
+  margin-left: 6em;
+  margin-bottom: 2em;
 }
 
 .tutorial-container {
@@ -533,13 +540,6 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   overflow: hidden;
 }
 
-.banner-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  opacity: 0.9;
-}
-
 .text {
   position: absolute;
   top: 50%;
@@ -564,6 +564,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   width: 100%;
   object-fit: cover;
   overflow: hidden;
+  opacity: 0.9;
 }
 
 .profile-container {
@@ -996,15 +997,14 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   height: 650px;
 }
 
-.table-of-contents {
-  position: absolute;
-  height: 30px;
-  left: 120px;
-  font-size: 24px;
-  line-height: 30px;
-  text-align: left;
-  padding: 31px;
+.table-of-contents-container {
+  margin: 2em 6em;
+}
 
+.table-of-contents {
+  margin-right: 6em;
+  font-size: 24px;
+  text-align: start;
 }
 
 .table-padding {
@@ -1024,13 +1024,16 @@ a:hover {
 }
 
 .about-text {
-  position: absolute;
-  width: 900px;
-  height: 46px;
-  left: 422px;
-  text-align: left;
-  padding: 31px;
-  padding-left: 88px;
+  font-size: 18px;
+  text-align: start;
+}
+
+.team-member {
+  flex-basis: 250px;
+}
+
+.team-pic {
+  width: 250px;
 }
 
 .text-style {
@@ -1042,62 +1045,30 @@ a:hover {
   margin-top: 3em;
 }
 
-.meet-team-title {
-  margin-top: 3em;
-  left: 120px;
+.motivation-text-containter {
+  padding: 3em;
 }
 
-.everyone {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
-}
-.kelsey-image {
-  left: 430px;
+.motivation-img {
+  width: 100%;
 }
 
-.sharlene-image {
-  left: 680px;
-}
-
-.jerry-image {
-  left: 920px;
-}
-
-.matt-image {
-  left: 1184px;
-}
-
-.motivations-container {
-  padding: 5em;
-}
-
-.each-motive-containers {
+.motivation-container {
   background-color: #FBFBFB;
   width: 600px;
   margin: 10px 20px;
-  /* box-shadow: 0 2px 2px 1px rgba(112, 144, 176, 0.2); */
   filter: drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2));
 }
 
 .motive-heading {
-  font-weight: 700;
+  font-weight: bold;
   font-size: 32px;
-  line-height: 40px;
-  padding-left: 76px;
-  padding-top: 68px;
 }
 
 .motive-text {
-  padding-left: 76px;
-  padding-right: 77px;
-  padding-bottom: 50px;
+  padding: 2em 3em;
   font-size: 18px;
-}
-
-.vision-img {
-  padding-top: 32px;
+  height: 460px;
 }
 
 .subtitle-about {
@@ -1125,12 +1096,32 @@ footer>p {
     width: 40ch;
   }
 
+  #meet-the-team {
+    margin-top: 10em;
+  }
+
+  .team-pic {
+    width: 150px;
+  }
+
 }
 
 @media (min-width: 992px) {
   .profile-pic {
     max-width: 140px;
     max-height: 140px;
+  }
+
+  .text-style {
+    font-size: 16px;
+  }
+
+  #meet-the-team {
+    margin-top: 8em;
+  }
+
+  .team-pic {
+    width: 200px;
   }
 
   .introduction-paragraph {
@@ -1146,5 +1137,17 @@ footer>p {
 
   .introduction-paragraph {
     width: 65ch;
+  }
+
+  #meet-the-team {
+    margin-top: 6em;
+  }
+
+  .team-pic {
+    width: 250px;
+  }
+
+  .text-style {
+    font-size: 18px;
   }
 }

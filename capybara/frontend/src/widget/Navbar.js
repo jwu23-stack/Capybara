@@ -35,13 +35,13 @@ export function NavBar(props) {
 
       <div className="d-flex justify-content-center flex-even me-auto ms-auto">
         <Link to="/home" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-          <div className={`p-3 link ${location.pathname === "/home" ? "active-link" : ""}`}>Explore</div>
+          <div className={`p-3 link ${location.pathname === "/home" ? "active-link" : "default-link"}`}>Explore</div>
         </Link>
         <Link to="/teach" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-          <div className={`p-3 link ${location.pathname === "/teach" ? "active-link" : ""}`}>Teach</div>
+          <div className={`p-3 link ${location.pathname === "/teach" ? "active-link" : "default-link"}`}>Teach</div>
         </Link>
         <Link to="/about" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-          <div className={`p-3 link ${location.pathname === "/about" ? "active-link" : ""}`}>About Us</div>
+          <div className={`p-3 link ${location.pathname === "/about" ? "active-link" : "default-link"}`}>About Us</div>
         </Link>
       </div>
       <div className="d-flex justify-content-end navbar-auth">
