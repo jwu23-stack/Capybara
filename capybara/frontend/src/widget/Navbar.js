@@ -43,10 +43,10 @@ export function NavBar(props) {
           <div className={`p-3 link ${location.pathname === "/about" ? "active-link" : "default-link"}`}>About Us</div>
         </Link>
       </div>
-      <div className="d-flex justify-content-end navbar-auth">
+      <div className="d-flex justify-content-end">
         {props.loginStatus ? (
           <Link to={"/profile/" +  sessionStorage.getItem("uid")} style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-            <div className={`p-3 link ${location.pathname === "/profile/"  + sessionStorage.getItem("uid") ? "active-link" : ""}`}><span id="profile">Profile</span></div>
+            <div className={`p-3 link ${location.pathname === "/profile/"  + sessionStorage.getItem("uid") ? "active-link" : "default-link"}`}><span id="profile">Profile</span></div>
           </Link>
         ) : (
           <div>

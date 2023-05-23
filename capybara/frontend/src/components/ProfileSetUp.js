@@ -6,10 +6,10 @@ export function Onboarding() {
   const [firstName, updateFirstName] = useState("");
   const [lastName, updateLastName] = useState("");
   const [city, updateCity] = useState("");
-  const [state, updateState] = useState(""); 
+  const [state, updateState] = useState("");
   const [zip, updateZip] = useState("");
   const [hobby, updateHobby] = useState("");
-  
+
   const handleSetup = (event) => {
     event.preventDefault();
     const db = getDatabase();
@@ -23,7 +23,7 @@ export function Onboarding() {
       window.location.href= "/home";
     })
   }
-  
+
   return (
     <div className="jumbotron">
       <nav className="navbar navbar-expand-lg navbar-auth d-flex justify-content-start" style={{ padding: "15px 0" }}>
@@ -102,6 +102,7 @@ export function Onboarding() {
                   </div>
                 </div>
                 <div className="row">
+                  {/* Grab every category from database */}
                     <div className="col">
                       <label htmlFor="inputHobby" className="inputTitle">What kind of hobby are you interested in?</label>
                       <select id="inputHobby" className="form-select no-border" defaultValue={"select"} onChange={e => updateHobby(e.target.value)}>
