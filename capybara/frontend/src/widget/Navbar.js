@@ -24,7 +24,6 @@ export function NavBar(props) {
       navigate("/");
     }
   }
-
   return (
     <nav className={`navbar navbar-expand-lg ${props.style} d-flex justify-content-evenly`}>
       <div className="d-flex navbar-logo">
@@ -46,8 +45,8 @@ export function NavBar(props) {
       </div>
       <div className="d-flex justify-content-end navbar-auth">
         {props.loginStatus ? (
-          <Link to="/profile" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-            <div className={`p-3 link ${location.pathname === "/profile" ? "active-link" : ""}`}><span id="profile">Profile</span></div>
+          <Link to={"/profile/" +  sessionStorage.getItem("uid")} style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
+            <div className={`p-3 link ${location.pathname === "/profile/"  + sessionStorage.getItem("uid") ? "active-link" : ""}`}><span id="profile">Profile</span></div>
           </Link>
         ) : (
           <div>

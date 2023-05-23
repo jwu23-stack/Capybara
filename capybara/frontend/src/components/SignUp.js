@@ -24,6 +24,7 @@ export function UserAuthSignUp() {
         .then((userCredential) => {
           // Signed up
           sessionStorage.setItem("email", true);
+          sessionStorage.setItem("uid", userCredential.user.uid);
           console.log(userCredential.user.uid);
           const db = getDatabase();
           set(ref(db, "/user/" + userCredential.user.uid), {
