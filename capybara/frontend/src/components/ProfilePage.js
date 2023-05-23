@@ -15,15 +15,9 @@ export function Profile(props) {
   const [selectedState, setSelectedState] = useState("state");
   const [isToggled, setIsToggled] = useState(false);
   const [buttonText, setButtonText] = useState("Edit Profile");
+  const [doneLoading, updateDoneLoading] = useState(false);
   const urlParams = useParams();
-
-
-  // NOTE: This implementation means that the page will load with some blanks, and then render the correct info.
-  // I'm sure there's a better way to do this (maybe show a loading spinner until the request completes?) but
-  // I don't really feel like figuring it out right now. -Matt
-
-  // Oh and also if you try and view a profile with an invalid path, it shows the page with all the blanks.
-
+  
   useEffect(() => {
     let isMounted = true;
     const userRef = ref(db, "/user/" + urlParams.profileID);
@@ -39,7 +33,9 @@ export function Profile(props) {
         updateFullName(data.firstName + " " + data.lastName);
       }
     })
-
+    
+    updateDoneLoading(true);
+    
     return () => {
       isMounted = false;
     }
@@ -58,6 +54,10 @@ export function Profile(props) {
     setSelectedState(e.target.value);
   }
 
+  if (!doneLoading) {
+    return (null);
+  }
+  
   return (
     <div id="profile">
       <div className="d-flex flex-column">
