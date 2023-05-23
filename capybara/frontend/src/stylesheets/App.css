@@ -1,14 +1,19 @@
 /* Font style */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
+html, body, #root, .App {
+  height: 100%;
+}
+
 body,
 #root {
   font-family: 'Outfit', sans-serif;
-  color: #FBFBFB;
+  color: #040202;
 }
 
 h1 {
   color: #00473e;
+  font-weight: bold;
 }
 
 h2 {
@@ -23,19 +28,23 @@ hr {
   display: none;
 }
 
+.font-size-20 {
+  font-size: 20px;
+}
+
 #error {
   color: red;
 }
 
 /* Navbar */
 .navbar-landing {
-  background-color: #00332C;
+  background-color: #00473e;
   color: #FBFBFB;
   font-size: 20px;
 }
 
 .navbar-default {
-  color: #00332C;
+  color: #00473e;
   font-size: 20px;
 }
 
@@ -96,9 +105,22 @@ hr {
   font-weight: bold;
 }
 
+div.default-link:hover {
+  text-decoration-color: #F2F7F5;
+}
+
 /* Authentication */
 #auth {
   color: #F2F7F5;
+}
+
+.signup-container .form-input {
+    border-bottom: 1px solid #F2F7F5;
+    color: #FFFFFF
+}
+
+.signup-container .form-input::placeholder {
+  color: #A8BBB9;
 }
 
 .form-container {
@@ -147,8 +169,8 @@ input:focus {
   outline: none;
 }
 
-#login-pic {
-  width: 500px;
+#login-pic, #signup-pic {
+  width: 600px;
   height: 500px;
   max-width: 100%;
   max-height: 100%;
@@ -162,15 +184,70 @@ input:focus {
   padding: 10px 30px;
 }
 
+/* Sign Up Page*/
+#signup {
+  height: 100%;
+  background-color: #00473E;
+}
+
+.signup-info {
+  padding-left: 150px;
+  margin-top: 3em;
+}
+
+.signup-btn {
+  margin: 1em 0;
+  max-width: 170px;
+  color: #00473E;
+  font-weight: bold;
+  padding: 10px 25px 10px;
+  background-color: #FFA8BA;
+  border-color: #FFA8BA;
+}
+
+.signup-color, .form-container .signup-color {
+  color: #F2F7F5;
+}
+
+.signup-form-label {
+  font-size: 18px;
+  color: #F2F7F5;
+  font-weight: bold;
+  margin: 1.5em 0;
+}
+
+.signup-container {
+  margin-right: 6em;
+  margin-left: 6em;
+  flex: 1;
+}
+
+input[type="text"].signup-style,
+input[type="password"].signup-style,
+select.form-input.signup-style,
+input.signup-style:focus {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #F2F7F5;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
+}
+
+input.signup-style::selection, input.signup-style::placeholder, input.signup-style {
+  color: #F2F7F5;
+}
+
 /* Landing Page */
-#landing-page {
+#landing-page, #aboutus, #teach-page {
   color: #00473E;
 }
 
-#landing-container {
+#landing-container, #teach-container {
   display: flex;
   height: 35em;
-  background-color: #00332C;
+  background-color: #00473e;
   border-bottom-left-radius: 20em;
   color: #FBFBFB;
 }
@@ -260,6 +337,9 @@ input:focus {
 /* How it works */
 #tutorial {
   margin-top: 12em;
+  margin-right: 6em;
+  margin-left: 6em;
+  margin-bottom: 2em;
 }
 
 .tutorial-container {
@@ -460,13 +540,6 @@ input:focus {
   overflow: hidden;
 }
 
-.banner-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  opacity: 0.9;
-}
-
 .text {
   position: absolute;
   top: 50%;
@@ -491,6 +564,7 @@ input:focus {
   width: 100%;
   object-fit: cover;
   overflow: hidden;
+  opacity: 0.9;
 }
 
 .profile-container {
@@ -584,15 +658,15 @@ input:focus {
 }
 
 /* PROFILE SET UP */
-
 .profile-setup {
   background-color: #FFFFFF;
   border-radius: 10px;
 }
 
 .app-container {
-  margin-left: 15rem;
-  margin-right: 15rem;
+  margin: 2em 15rem;
+  padding: 20px;
+  padding-bottom: 40px;
 }
 
 .profile-setup-content {
@@ -618,10 +692,6 @@ input:focus {
   text-align: center;
   margin-left: 120px;
   margin-right: 120px;
-}
-
-.jumbotron {
-  background-color: #00473E;
 }
 
 /* Remove */
@@ -660,7 +730,11 @@ input:focus {
   outline: none;
 }
 
-/* button */
+/* Teacher Application */
+.teacher-application {
+  background-color: #00473E;
+}
+
 .btn-primary {
   background-color: #FAAE2B;
   border-color: #FAAE2B;
@@ -691,9 +765,311 @@ input:focus {
   margin-top: 100px;
 }
 
+/* application */
+.teacher-application {
+  background-color: #FFFFFF;
+}
+
+.application-intro h2 {
+  font-family: 'Outfit', sans-serif;
+  color: #00473E;
+}
+
+.application-intro p {
+  font-family: 'Outfit', sans-serif;
+  color: #475D5B;
+}
+
+.form-group {
+  font-family: 'Outfit', sans-serif;
+  color: #00473E;
+  font-weight: bold;
+}
+
+.jumbotron {
+  background-color: #00473E;
+}
+
+.container {
+  width: 924px;
+  height: 909px;
+  left: 402px;
+  top: 134px;
+
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+/* Teach Info Page */
+#teach-container {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 20em;
+}
+
+#teach-container h1 {
+  color: #F2F7F5;
+}
+.teach-text {
+  width: 35em;
+  align-items: flex-start;
+  margin-top: 6em;
+  margin-right: 6em;
+}
+
+.teach-image-container {
+  display: flex;
+  margin-left: 70px;
+  height: 398px;
+}
+
+.teach-image {
+  width: 600px;
+  height: 340px;
+  margin-top: 5em;
+}
+
+.whatWeDo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 300px;
+}
+
+.whatWeDo-column {
+    flex: 1;
+}
+
+.disco-img {
+    position: absolute;
+    margin-top: 3em;
+    width: 290px;
+    height: 220px;
+    left: 121px;
+}
+
+.disco-heading {
+  font-weight: bold;
+  margin-top: 3em;
+  position: absolute;
+  left: 491.01px;
+}
+
+.disco-text {
+  position: absolute;
+  margin-top: 8em;
+  text-align: left;
+  width: 400px;
+  left: 491.01px;
+}
+
+.connect-img {
+  position: absolute;
+  margin-top: 3em;
+  width: 300px;
+  height: 200px;
+  left: 1050px;
+}
+.connect-heading {
+  font-weight: bold;
+  margin-top: 3em;
+  position: absolute;
+  text-align: left;
+  left: 600px;
+}
+
+.connect-text {
+  position: absolute;
+  margin-top: 8em;
+  text-align: left;
+  width: 400px;
+  left: 600px;
+}
+
+.art-img {
+  position: absolute;
+  margin-top: 3em;
+  width: 250px;
+  height: 200px;
+  left: 121px;
+}
+
+.art-heading {
+  font-weight: bold;
+  margin-top: 3em;
+  position: absolute;
+  left: 491.01px;
+}
+
+.art-text {
+  position: absolute;
+  margin-top: 8em;
+  text-align: left;
+  width: 430px;
+  left: 491.01px;
+}
+
+.steps-row {
+  display: flex;
+}
+.steps-column {
+  flex: 50%;
+  padding: 10px;
+  height: 263;
+}
+
+.steps-img {
+  position: absolute;
+  width: 450px;
+  height: 500px;
+  left: 122px;
+  margin-top: 100.41px;
+}
+
+.individualSteps-column {
+  flex: 50%;
+  padding: 10px;
+  margin-top: 100px;
+  align-items: left;
+}
+
+.thirdStep-column {
+  flex: 50%;
+  padding: 30px;
+  margin-top: 100px;
+  align-items: left;
+}
+
+.number-title {
+  position: absolute;
+  left: 739px;
+  margin-top: 60px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.number-text {
+  position: absolute;
+  left: 798px;
+  margin-top: 60px;
+  width: 480px;
+  height: 99px;
+  text-align: left;
+}
+
+#how-it-works {
+  margin-top: 7em;
+}
+
+#apply-teacher {
+  margin-top: 25em;
+  margin-bottom: 300px;
+}
+
+.apply-text {
+  padding-left: 20em;
+  padding-right: 20em;
+  font-size: 17px;
+  margin-top: 1em;
+}
+
+.teach-button, .signup-button {
+  font-weight: bold;
+  color: #00473E;
+}
+
+/* About Us Page */
+.aboutus-img {
+  width: 1450px;
+  height: 400px;
+}
+
+#about-us {
+  margin-top: 7em;
+  height: 650px;
+}
+
+.table-of-contents-container {
+  margin: 2em 6em;
+}
+
+.table-of-contents {
+  margin-right: 6em;
+  font-size: 24px;
+  text-align: start;
+}
+
+.table-padding {
+  padding: 7px;
+}
+
+a {
+  color: #00473E;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.about-text {
+  font-size: 18px;
+  text-align: start;
+}
+
+.team-member {
+  flex-basis: 250px;
+}
+
+.team-pic {
+  width: 250px;
+}
+
+.text-style {
+  padding: 5px;
+  color: #475D5B;
+}
+
+#meet-the-team {
+  margin-top: 3em;
+}
+
+.motivation-text-containter {
+  padding: 3em;
+}
+
+.motivation-img {
+  width: 100%;
+}
+
+.motivation-container {
+  background-color: #FBFBFB;
+  width: 600px;
+  margin: 10px 20px;
+  filter: drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2));
+}
+
+.motive-heading {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.motive-text {
+  padding: 2em 3em;
+  font-size: 18px;
+  height: 460px;
+}
+
+.subtitle-about {
+  font-weight: 400;
+}
+
 /* Footer */
 footer {
-  background-color: #00332C;
+  background-color: #00473E;
   padding: 60px 20px;
   margin-top: auto;
 }
@@ -712,12 +1088,32 @@ footer>p {
     width: 40ch;
   }
 
+  #meet-the-team {
+    margin-top: 10em;
+  }
+
+  .team-pic {
+    width: 150px;
+  }
+
 }
 
 @media (min-width: 992px) {
   .profile-pic {
     max-width: 140px;
     max-height: 140px;
+  }
+
+  .text-style {
+    font-size: 16px;
+  }
+
+  #meet-the-team {
+    margin-top: 8em;
+  }
+
+  .team-pic {
+    width: 200px;
   }
 
   .introduction-paragraph {
@@ -733,5 +1129,17 @@ footer>p {
 
   .introduction-paragraph {
     width: 65ch;
+  }
+
+  #meet-the-team {
+    margin-top: 6em;
+  }
+
+  .team-pic {
+    width: 250px;
+  }
+
+  .text-style {
+    font-size: 18px;
   }
 }

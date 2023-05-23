@@ -8,8 +8,13 @@ import { NavBar }  from '../widget/Navbar.js';
 import { Footer } from '../widget/Footer.js';
 import { Landing } from './LandingPage.js';
 import { UserAuthSignIn } from "./UserAuth.js";
+import { UserAuthSignUp } from "./SignUp.js";
 import { Home } from './HomePage.js';
 import { Profile } from './ProfilePage.js';
+import { Onboarding } from './ProfileSetUp.js';
+import { TeachInfo } from './TeachInfo.js';
+import { AboutUs } from './AboutUs.js';
+import { Application } from './TeacherApp.js';
 
 import './../stylesheets/App.css';
 
@@ -17,10 +22,10 @@ function App() {
   const location = useLocation();
 
   const [loginStatus, setLoginStatus] = useState(false);
-  const hiddenRoutes = ["/signin", "/register"];
+  const hiddenRoutes = ["/signin", "/signup", "/onboarding"];
 
   const isHiddenRoute = hiddenRoutes.includes(location.pathname);
-  const isLanding = location.pathname === "/";
+  const isLanding = location.pathname === "/" | location.pathname === "/teach";
   const landingStyle = isLanding ? "navbar-landing" : "navbar-default";
 
   useEffect(() => {
@@ -41,8 +46,13 @@ function App() {
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn/>} />
+        <Route path="signup" element={<UserAuthSignUp/>} />
+        <Route path="onboarding" element={<Onboarding />} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
         <Route path="profile/:profileID" element={<Profile />}></Route>
+        <Route path="teach" element={<TeachInfo />}></Route>
+        <Route path="about" element={<AboutUs/>}></Route>
+        <Route path="application" element={<Application/>}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>
