@@ -25,7 +25,7 @@ hr {
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 .font-size-20 {
@@ -69,12 +69,6 @@ hr {
   margin-right: 6em;
 }
 
-.navbar-auth {
-  color: #00473E;
-  font-size: 20px;
-  margin-right: 2.5em;
-}
-
 .auth-btn {
   font-size: 20px;
   font-family: inherit;
@@ -96,7 +90,7 @@ hr {
 
 .link:hover {
   text-decoration: underline;
-  text-decoration-color: #00332C;
+  text-decoration-color: #00473e;
   font-weight: bold;
 }
 
@@ -106,7 +100,7 @@ hr {
 }
 
 div.default-link:hover {
-  text-decoration-color: #F2F7F5;
+  text-decoration-color: #00473e;
 }
 
 /* Authentication */
@@ -167,6 +161,8 @@ input:focus {
   box-shadow: none;
   border-radius: 0;
   outline: none;
+  padding: 0;
+  margin-top: 0.5em;
 }
 
 #login-pic, #signup-pic {
@@ -560,6 +556,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 }
 
 .banner-image {
+  position: relative;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -626,35 +623,60 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   height: 20%;
 }
 
+.edit-profile-container {
+  display: grid;
+}
+
 .edit-profile-btn {
-  display: block;
-  margin-left: 55vw;
-  margin-top: calc(10.5vh + 5px);
+  position: absolute;
+  left: calc(82vw - var(--button-width) / 2);
+  top: calc(36vh - var(--button-height) / 2);
+  --button-width: 200px;
+  --button-height: 40px;
+  display: flex;
+  margin-left: 7em;
   padding: 8px;
   color: #00473e;
   font-weight: bold;
+  grid-area: 1 / 1;
+}
+
+.edit-profile-btn:hover {
+  background-color: #FFCF7C;
+  color: #00473e;
 }
 
 .profile-background {
-  height: 40em;
+  height: 45em;
   color: #F2F7F5;
+  margin-top: 2em;
+}
+
+.general-info-container {
+  margin-top: 20vh;
+  margin-left: 2em;
 }
 
 .introductions {
-  margin-top: 4vh;
-  margin-left: 2em;
   margin-bottom: 2em;
 }
 
 .introduction-paragraph {
-  margin-left: 2em;
   font-size: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-.interests {
-  margin-left: 2em;
+.profile-input-field {
+  width: 400px;
+}
+
+.profile-textarea-field {
+  width: 880px;
+}
+
+.profile-textarea-field::placeholder {
+  white-space: pre-line;
 }
 
 /* PROFILE SET UP */
@@ -1128,7 +1150,7 @@ footer>p {
   }
 
   .introduction-paragraph {
-    width: 65ch;
+    width: 58ch;
   }
 
   #meet-the-team {
