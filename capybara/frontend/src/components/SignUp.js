@@ -30,11 +30,8 @@ export function UserAuthSignUp() {
           set(ref(db, "/user/" + userCredential.user.uid), {
             classesTaught: "",
             description: "",
-            hobbies: "",
-            isteacher: "",
-            location: "",
-            name: "",
-            profilepic: "",
+            isTeacher: "",
+            profilePic: "",
             joinYear: new Date().getFullYear()
           }).then(() => {
             window.location.href = "/onboarding";
