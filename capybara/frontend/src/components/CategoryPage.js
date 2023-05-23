@@ -6,7 +6,6 @@ import { getDatabase, ref, get } from 'firebase/database';
 // TODO: Add header with image
 export function CategoryPage({ subcategoryName }) {
   const [subcategoryCards, updateCards] = useState([]);
-  const [pageNumber, updatePageNumber] = useState(0);
   const [categoryBanner, setCategoryBanner] = useState("");
   const [categoryName, setCategoryName] = useState("");
   const urlParams = useParams();
@@ -55,7 +54,7 @@ export function CategoryPage({ subcategoryName }) {
     return () => {
       isMounted = false;
     }
-  }, [pageNumber]);
+  }, []);
 
   return (
     // Render the cards
@@ -70,6 +69,5 @@ export function CategoryPage({ subcategoryName }) {
         </div>
       </div>
     </div>
-    // TODO: add navigation to additional pages (if needed)
   );
 }

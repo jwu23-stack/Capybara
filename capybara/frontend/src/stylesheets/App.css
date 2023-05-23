@@ -240,11 +240,11 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 }
 
 /* Landing Page */
-#landing-page, #aboutus {
+#landing-page, #aboutus, #teach-page {
   color: #00473E;
 }
 
-#landing-container {
+#landing-container, #teach-container {
   display: flex;
   height: 35em;
   background-color: #00473e;
@@ -802,29 +802,22 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 
 /* Teach Info Page */
 #teach-container {
-  display: flex;
-  height: 35em;
-  background-color: #00332C;
+  border-bottom-left-radius: 0;
   border-bottom-right-radius: 20em;
-  color: #FBFBFB;
-
 }
 
 #teach-container h1 {
   color: #F2F7F5;
 }
 .teach-text {
-  position: absolute;
-  width: 30em;
-  left: 800px;
-  top: 200px;
+  width: 35em;
   align-items: flex-start;
-  flex: 1 1 auto;
+  margin-top: 6em;
+  margin-right: 6em;
 }
 
 .teach-image-container {
   display: flex;
-  flex: 20 1 auto;
   margin-left: 70px;
   height: 398px;
 }
@@ -832,7 +825,6 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 .teach-image {
   width: 600px;
   height: 340px;
-  position: absolute;
   margin-top: 5em;
 }
 
@@ -981,7 +973,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   margin-top: 1em;
 }
 
-.teach-button {
+.teach-button, .signup-button {
   font-weight: bold;
   color: #00473E;
 }

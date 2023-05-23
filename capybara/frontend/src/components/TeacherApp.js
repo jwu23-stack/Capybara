@@ -1,9 +1,8 @@
 import React from 'react';
-import AddIcon from '@mui/icons-material/Add';
 
 export function Application() {
   return (
-    <div class="jumbotron"> 
+    <div class="jumbotron">
       <div class="container">
         <div class="p-5 mb-4 rounded-10">
           <div class="teacher-application">
@@ -46,7 +45,6 @@ export function Application() {
               <div id="app-button">
                 <button type="submit" class="btn btn-primary">Next</button>
               </div>
-            
             </form>
           </div>
         </div>

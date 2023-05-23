@@ -1,11 +1,14 @@
 import React from 'react';
-import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
 
 export function TeachInfo() {
   return (
-    <div id="landing-page">
+    <div id="teach-page">
       {/* Teach text and image */}
-      <div className="d-flex" id="teach-container">
+      <div className="d-flex flex-row justify-content-between" id="teach-container">
+        <div className="teach-image-container">
+          <img src={require('../img/teach-img.png')} alt="teach page" className="teach-image"></img>
+        </div>
         <div className="d-flex flex-column teach-text">
           <h1>Interested in teaching others your hobby?</h1>
           <p>Apply to be a teacher and share your hobbies with others!
@@ -13,9 +16,6 @@ export function TeachInfo() {
             you can start your teaching journey.
           </p>
           <button type="button" className="btn btn-warning mt-3 px-5 teach-button">Apply Now</button>
-        </div>
-        <div className="teach-image-container">
-          <img src={require('../img/teach-img.png')} alt="teach page" className="teach-image"></img>
         </div>
       </div>
 

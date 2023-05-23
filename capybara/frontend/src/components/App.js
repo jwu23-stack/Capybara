@@ -14,6 +14,7 @@ import { Profile } from './ProfilePage.js';
 import { Onboarding } from './ProfileSetUp.js';
 import { TeachInfo } from './TeachInfo.js';
 import { AboutUs } from './AboutUs.js';
+import { Application } from './TeacherApp.js';
 
 import './../stylesheets/App.css';
 
@@ -24,7 +25,7 @@ function App() {
   const hiddenRoutes = ["/signin", "/signup", "/onboarding"];
 
   const isHiddenRoute = hiddenRoutes.includes(location.pathname);
-  const isLanding = location.pathname === "/";
+  const isLanding = location.pathname === "/" | location.pathname === "/teach";
   const landingStyle = isLanding ? "navbar-landing" : "navbar-default";
 
   useEffect(() => {
@@ -49,8 +50,9 @@ function App() {
         <Route path="onboarding" element={<Onboarding />} />
         <Route path="home" element={<Home loginStatus={loginStatus}/>}></Route>
         <Route path="profile/:profileID" element={<Profile />}></Route>
-        <Route path="/teach" element={<TeachInfo />}></Route>
+        <Route path="teach" element={<TeachInfo />}></Route>
         <Route path="about" element={<AboutUs/>}></Route>
+        <Route path="application" element={<Application/>}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>

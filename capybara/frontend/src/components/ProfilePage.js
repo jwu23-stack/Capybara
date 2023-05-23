@@ -11,18 +11,18 @@ export function Profile(props) {
   const [name, updateName] = useState("");
   const [description, updateDescription] = useState("")
   const urlParams = useParams();
-  
-  
+
+
   // NOTE: This implementation means that the page will load with some blanks, and then render the correct info.
   // I'm sure there's a better way to do this (maybe show a loading spinner until the request completes?) but
   // I don't really feel like figuring it out right now. -Matt
-  
+
   // Oh and also if you try and view a profile with an invalid path, it shows the page with all the blanks.
-  
+
   useEffect(() => {
     let isMounted = true;
     const userRef = ref(db, "/user/" + urlParams.profileID);
-    
+
     onValue(userRef, (snapshot) => {
       const data = snapshot.val();
       if (snapshot.exists() && isMounted) {
@@ -33,12 +33,12 @@ export function Profile(props) {
         updateFullName(data.firstName + " " + data.lastName);
       }
     })
-    
+
     return () => {
       isMounted = false;
     }
   }, [])
-  
+
   return (
     <div id="profile">
       <div className="d-flex flex-column">
@@ -76,7 +76,9 @@ export function Profile(props) {
         </div>
         {/* Edit Profile Settings */}
         <div className="profile-background">
-          <div className="hidden"></div>
+          <div className="hidden">
+          <img src={require('../img/default_user.jpeg')} alt="default user" className="profile-pic"></img>
+          </div>
         </div>
       </div>
     </div>

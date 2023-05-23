@@ -1,7 +1,15 @@
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 
 export function Landing() {
+  const navigate = useNavigate();
+
+  const handleTeachClick = () => {
+    navigate("teach");
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
+
   return (
     <div id="landing-page">
       {/* Hero text and image */}
@@ -11,7 +19,7 @@ export function Landing() {
           <p>Hobbio is a free platform where you can learn, teach, and share
             your hobbies and passions.
           </p>
-          <button type="button" className="btn btn-warning mt-3 px-5">Sign Up</button>
+          <button type="button" className="btn btn-warning mt-3 px-5 signup-button" onClick={() => {navigate("/signup")}}>Sign Up</button>
         </div>
         <div className="hero-image-container">
           <img src={require('../img/hero-img.png')} alt="landing page" className="hero-image"></img>
@@ -59,7 +67,7 @@ export function Landing() {
             <img src={require('../img/paintbrush.jpg')} alt="rock climbing" className="user-image"></img>
             <p className="user-heading">As a Teacher</p>
             <p className="user-text">Teach learners about a hobby you're passionate about and connect with people in your community. You will need to fill out a simple application and get approved before starting your teaching journey.</p>
-            <button className="astext align-self-end mb-3 learn-more-btn">Learn More →</button>
+            <button className="astext align-self-end mb-3 learn-more-btn" onClick={handleTeachClick}>Learn More →</button>
           </div>
         </div>
       </div>
