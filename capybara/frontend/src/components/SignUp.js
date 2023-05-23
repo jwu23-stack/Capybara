@@ -24,16 +24,14 @@ export function UserAuthSignUp() {
         .then((userCredential) => {
           // Signed up
           sessionStorage.setItem("email", true);
+          sessionStorage.setItem("uid", userCredential.user.uid);
           console.log(userCredential.user.uid);
           const db = getDatabase();
           set(ref(db, "/user/" + userCredential.user.uid), {
             classesTaught: "",
             description: "",
-            hobbies: "",
-            isteacher: "",
-            location: "",
-            name: "",
-            profilepic: "",
+            isTeacher: "",
+            profilePic: "",
             joinYear: new Date().getFullYear()
           }).then(() => {
             window.location.href = "/onboarding";

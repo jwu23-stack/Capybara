@@ -23,6 +23,7 @@ export function UserAuthSignIn() {
         // Signed in
         const user = userCredential.user;
         sessionStorage.setItem("email", true);
+        sessionStorage.setItem("uid", user.uid);
         window.location.href = "/home";
       })
       .catch((error) => {
