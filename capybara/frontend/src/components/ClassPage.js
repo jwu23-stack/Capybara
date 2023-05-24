@@ -74,16 +74,32 @@ export function ClassPage(props) {
         </div>
         <div className="col"> {/*Need to constrain size*/}
           <div className="about-teacher rounded-3 row">
-            <div className = "col-6">
+            <div className="col-12">
               <h2 style={{color:'#F2F7F5'}}>{teacherName}</h2>
               <p style={{color:"#F2F7F5"}}>{teacherTitle + "  · " /* add in bogus ratings*/} </p>
               <h2 style={{color:'#F2F7F5'}}>About Me</h2>
               <p style={{color:'#F2F7F5'}}>{teacherDescription}</p>
               <h2 style={{color:"#F2F7F5"}}>Availabilities</h2>
-              <p style={{color:"#F2F7F5"}}><em>Brother you can just die.</em></p>
             </div>
-            <div className = "col-6">
-              <button type="button" className="btn btn-primary" onClick={handleClassSignUp}>Make an Appointment</button>
+            <div className="col-6">
+              <div className="row">
+                <div className="col-6">
+                  <p style={{color:"#F2F7F5"}}>Sunday</p>
+                  <p style={{color:"#F2F7F5"}}>Tuesday</p>
+                  <p style={{color:"#F2F7F5"}}>Friday</p>
+                </div>
+                <div className="col-6">
+                  <p style={{color:"#F2F7F5"}}>11AM-2PM</p>
+                  <p style={{color:"#F2F7F5"}}>8PM-10PM</p>
+                  <p style={{color:"#F2F7F5"}}>10AM-12PM</p>
+                  <p style={{color:"#F2F7F5"}}>7PM-10PM</p>
+                </div>
+              </div>
+            </div>
+            <div className="d-flex col-6 align-items-end">
+              <div className="mt-auto">
+                <button type="button" className="btn btn-primary" onClick={handleClassSignUp}>Make an Appointment</button>
+              </div>
             </div>
           </div>
         </div>
