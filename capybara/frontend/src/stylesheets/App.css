@@ -330,6 +330,14 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   border-width: 2px;
 }
 
+/* Class Page */
+
+.about-teacher {
+  width: 487.5px;
+  height: 375px;
+  background-color: #00473E;
+}
+
 /* How it works */
 #tutorial {
   margin-top: 12em;
