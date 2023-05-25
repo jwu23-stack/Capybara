@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, set } from 'firebase/database';
 import { useParams } from 'react-router-dom';
 
 export function Profile(props) {
@@ -31,6 +31,9 @@ export function Profile(props) {
         updateLastName(data.lastName);
         updateDescription(data.description);
         updateFullName(data.firstName + " " + data.lastName);
+        setSelectedCity(data.location.split(",")[0].trim());
+        setSelectedState(data.location.split(",")[1].trim());
+        console.log(selectedCity);
       }
     })
     
@@ -42,8 +45,15 @@ export function Profile(props) {
   }, [])
 
   const handleEditClick = () => {
-    setIsToggled(!isToggled);
-    setButtonText((prevText) => (prevText === "Edit Profile" ? "Save & Exit" : "Edit Profile"))
+    set(ref(db, '/user/' + urlParams.profileID), {
+      firstName: firstName,
+      lastName: lastName,
+      location: selectedCity + ", " + selectedState,
+      description: description
+    }).then(() => {
+      setIsToggled(!isToggled);
+      setButtonText((prevText) => (prevText === "Edit Profile" ? "Save & Exit" : "Edit Profile"))
+    })
   }
 
   const handleCityChange = (e) => {
@@ -118,15 +128,15 @@ export function Profile(props) {
                 <label htmlFor="inputCity" className="inputTitle">What City and State do you live in?</label>
                 <select id="inputCity" value={selectedCity} className="profile-input-field no-border" onChange={handleCityChange}>
                   <option value="city">City</option>
-                  <option value="seattle">Seattle</option>
-                  <option value="lynnwood">Lynnwood</option>
-                  <option value="shoreline">Shoreline</option>
-                  <option value="tacoma">Tacoma</option>
-                  <option value="bellevue">Bellevue</option>
-                  <option value="everett">Everett</option>
-                  <option value="olympia">Olympia</option>
-                  <option value="redmond">Redmond</option>
-                  <option value="renton">Renton</option>
+                  <option value="Seattle">Seattle</option>
+                  <option value="Lynnwood">Lynnwood</option>
+                  <option value="Shoreline">Shoreline</option>
+                  <option value="Tacoma">Tacoma</option>
+                  <option value="Bellevue">Bellevue</option>
+                  <option value="Everett">Everett</option>
+                  <option value="Olympia">Olympia</option>
+                  <option value="Redmond">Redmond</option>
+                  <option value="Renton">Renton</option>
                 </select>
               </div>
               <div className="d-flex flex-column" style={{ marginLeft: "5em", marginTop: "2.3em" }}>
