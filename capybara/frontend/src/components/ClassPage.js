@@ -15,6 +15,7 @@ export function ClassPage(props) {
   const [description, updateDescription] = useState();
   const [teacherTitle, updateTeacherTitle] = useState();
   const [teacherDescription, updateTeacherDescription] = useState();
+  const [teacherRating, updateTeacherRating] = useState("No reviews");
   const [doneLoading, updateDoneLoading] = useState(false);
   let photoElements = [];
   
@@ -25,7 +26,6 @@ export function ClassPage(props) {
     onValue(classRef, (snapshot) => {
       const data = snapshot.val()
       if (snapshot.exists() && isMounted) {
-        console.log(data.pictures)
         data.pictures.split(',').forEach((image) => {
           photoElements.push(<img src={image}></img>)
         })
@@ -39,9 +39,12 @@ export function ClassPage(props) {
         updateQualifications(); // Implement this later?? 
         updateDescription(data.description);
         updateTeacherDescription(data.teacherDescription);
+        if (data.hasOwnProperty("teacherDescription")) {
+          updateTeacherRating(data.teacherRating); 
+        }
       }
+      
     })
-    
     updateDoneLoading(true);
     
     return () => {
@@ -62,21 +65,31 @@ export function ClassPage(props) {
   return (
     <div>
       {photos}
-      <div className="row">
-        <div className="col">
+      <div className="row justify-content-center">
+        <div className="col-5">
           <h1>{name}</h1>
           <p>Taught by {teacherName} | {teacherExperience} of experience</p>
           <p>{/*Add pin icon here*/}{location}</p>
           <hr></hr>
           <h2 style={{color:'#00473E'}}>Qualifications </h2>
+          <div className="row">
+            <div className="col-2">
+              <img src="https://i.postimg.cc/qRVRrnwz/illustration-badge-award-checkmark.png"></img>
+              <p className="text-center">USFC Certification</p>
+            </div>
+            <div className="col-2">
+              <img src="https://i.postimg.cc/rwY65ktT/illustration-trophy-award-checkmark.png"></img>
+              <p className="text-center">Seattle Fencing Competition - 1st Place</p>
+            </div>
+          </div>
           <h2 style={{color:'#00473E'}}>Description</h2>
           <p>{description}</p>
         </div>
-        <div className="col"> {/*Need to constrain size*/}
+        <div className="col-5"> {/*Need to constrain size*/}
           <div className="about-teacher rounded-3 row">
             <div className="col-12">
               <h2 style={{color:'#F2F7F5'}}>{teacherName}</h2>
-              <p style={{color:"#F2F7F5"}}>{teacherTitle + "  · " /* add in bogus ratings*/} </p>
+              <p style={{color:"#F2F7F5"}}>{teacherTitle + "  ·  " + teacherRating /* add in bogus ratings*/} </p>
               <h2 style={{color:'#F2F7F5'}}>About Me</h2>
               <p style={{color:'#F2F7F5'}}>{teacherDescription}</p>
               <h2 style={{color:"#F2F7F5"}}>Availabilities</h2>
@@ -96,10 +109,8 @@ export function ClassPage(props) {
                 </div>
               </div>
             </div>
-            <div className="d-flex col-6 align-items-end">
-              <div className="mt-auto">
-                <button type="button" className="btn btn-primary" onClick={handleClassSignUp}>Make an Appointment</button>
-              </div>
+            <div className="col-6 align-items-end">
+                <button type="button" className="btn btn-primary mt-auto" onClick={handleClassSignUp}>Make an Appointment</button>
             </div>
           </div>
         </div>
