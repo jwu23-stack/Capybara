@@ -15,6 +15,8 @@ import { Onboarding } from './ProfileSetUp.js';
 import { TeachInfo } from './TeachInfo.js';
 import { AboutUs } from './AboutUs.js';
 import { Application } from './TeacherApp.js';
+import { ExplorePage } from './HomePage.js';
+import { AppSubmitted } from './TeacherApp.js';
 
 import './../stylesheets/App.css';
 
@@ -43,6 +45,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Landing loginStatus={loginStatus} />}></Route>
         <Route path="/catalog" element={<CatalogPage />}></Route>
+        <Route path="/explore" element={<ExplorePage />}></Route>
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
         <Route path="signin" element={<UserAuthSignIn/>} />
@@ -53,6 +56,7 @@ function App() {
         <Route path="teach" element={<TeachInfo />}></Route>
         <Route path="about" element={<AboutUs/>}></Route>
         <Route path="application" element={<Application/>}></Route>
+        <Route path="submitted" element={<AppSubmitted />}></Route>
       </Routes>
       {!isHiddenRoute && <Footer />}
     </div>

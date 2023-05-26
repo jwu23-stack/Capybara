@@ -3,6 +3,7 @@ import { getDatabase, ref, get } from 'firebase/database';
 import { Carousel } from 'react-responsive-carousel';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Card } from './Card.js';
 import { Category } from '../widget/Category.js';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -126,6 +127,61 @@ export function Home(props) {
         {mostPopular.map((card) => {
           return <Category key={card.key} goTo={card.props.goTo} title={card.props.title} image={card.props.image} />
         })}
+      </div>
+    </div>
+  )
+}
+
+export function ExplorePage() {
+  const [categoryCards, setCategoryCards] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    const database = getDatabase();
+    const categoryRef = ref(database, "explore");
+    let cards = [];
+    let response = [];
+
+    get(categoryRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        response = snapshot.val();
+      } else {
+        console.log("No categories!");
+      }
+    }).then(() => {
+      response.forEach((entry, index) => {
+        cards.push(<Card key={index} goTo={"/category/" + index} title={entry.name} image={entry.picture}></Card>);
+      })
+      if (isMounted) {
+        const sortedCards = cards.slice().sort((a, b) => {
+          const titleA = a.props.title.toUpperCase();
+          const titleB = b.props.title.toUpperCase();
+          if (titleA < titleB) {
+            return -1;
+          }
+          if (titleA > titleB) {
+            return 1;
+          }
+          return 0;
+        });
+        setCategoryCards(sortedCards);
+      }
+    });
+    return () => {
+      isMounted = false;
+    }
+  }, []);
+
+  return (
+    <div id="category-container">
+      <div className="category-banner">
+        <img src={require("../img/explore.png")} className="img-fluid rounded banner-image" alt={"All Categories"} />
+        <p className="text">All Categories</p>
+      </div>
+      <div id="subcategory" className="category-container text-left">
+        <div className="row row-col-3">
+          {categoryCards}
+        </div>
       </div>
     </div>
   )
