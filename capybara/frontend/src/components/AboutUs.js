@@ -50,7 +50,7 @@ export function AboutUs() {
             <img src={require('../img/kelsey.png')} alt="kelsey" className="team-pic"></img>
             <p className="fw-bold mb-0">Kelsey Lu</p>
             <p className="mb-0">Project Manager</p>
-            <p className="mb-0">kl57@uw.edu</p>
+            <p className="mb-0">kelseylu612@gmail.com</p>
           </div>
           <div className="d-flex flex-column text-center team-member">
             <img src={require('../img/sharlene.png')} alt="sharlene" className="team-pic"></img>
@@ -68,7 +68,7 @@ export function AboutUs() {
             <img src={require('../img/matt.png')} alt="matt" className="team-pic"></img>
             <p className="fw-bold mb-0">Matthew Karyadi</p>
             <p className="mb-0">Developer</p>
-            <p className="mb-0">mkaryadi@uw.edu</p>
+            <p className="mb-0">matthew.t.karyadi@gmail.com</p>
           </div>
         </div>
       </div>

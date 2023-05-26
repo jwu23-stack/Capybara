@@ -104,12 +104,10 @@ export function Profile(props) {
               <div className="introductions">
                 <h1 className="fw-bold">Hi, I'm {firstName}</h1>
                 <p className="introduction-paragraph">{description}</p>
-                <hr></hr>
+                {/* <hr></hr> */}
               </div>
-              <div>
-                <h1 className="fw-bold">Interested in learning: </h1>
+                {/* <h1 className="fw-bold">Interested in learning: </h1> Maybe implement this some day*/}
                 {/* Pull classes into here */}
-              </div>
             </div>
           </div>
         </div>
