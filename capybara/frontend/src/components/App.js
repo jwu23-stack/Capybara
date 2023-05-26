@@ -15,6 +15,7 @@ import { Onboarding } from './ProfileSetUp.js';
 import { TeachInfo } from './TeachInfo.js';
 import { AboutUs } from './AboutUs.js';
 import { Application } from './TeacherApp.js';
+import { ClassPage } from './ClassPage.js';
 import { ExplorePage } from './HomePage.js';
 import { AppSubmitted } from './TeacherApp.js';
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/explore" element={<ExplorePage />}></Route>
         <Route path="/category/:categoryID" element={<CategoryPage />}></Route>
         <Route path="/subcategory/:subcategoryID" element={<SubcategoryPage />}></Route>
+        <Route path="/class/:classID" element={<ClassPage />} />
         <Route path="signin" element={<UserAuthSignIn/>} />
         <Route path="signup" element={<UserAuthSignUp/>} />
         <Route path="onboarding" element={<Onboarding />} />

@@ -29,7 +29,7 @@ export function UserAuthSignUp() {
           const db = getDatabase();
           set(ref(db, "/user/" + userCredential.user.uid), {
             classesTaught: "",
-            description: "",
+            description: " ",
             isTeacher: "",
             profilePic: "",
             joinYear: new Date().getFullYear()

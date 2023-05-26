@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, update } from 'firebase/database';
 import { useParams } from 'react-router-dom';
 
 export function Profile(props) {
@@ -15,15 +15,9 @@ export function Profile(props) {
   const [selectedState, setSelectedState] = useState("state");
   const [isToggled, setIsToggled] = useState(false);
   const [buttonText, setButtonText] = useState("Edit Profile");
+  const [doneLoading, updateDoneLoading] = useState(false);
   const urlParams = useParams();
-
-
-  // NOTE: This implementation means that the page will load with some blanks, and then render the correct info.
-  // I'm sure there's a better way to do this (maybe show a loading spinner until the request completes?) but
-  // I don't really feel like figuring it out right now. -Matt
-
-  // Oh and also if you try and view a profile with an invalid path, it shows the page with all the blanks.
-
+  
   useEffect(() => {
     let isMounted = true;
     const userRef = ref(db, "/user/" + urlParams.profileID);
@@ -37,17 +31,29 @@ export function Profile(props) {
         updateLastName(data.lastName);
         updateDescription(data.description);
         updateFullName(data.firstName + " " + data.lastName);
+        setSelectedCity(data.location.split(",")[0].trim());
+        setSelectedState(data.location.split(",")[1].trim());
+        console.log(selectedCity);
       }
     })
-
+    
+    updateDoneLoading(true);
+    
     return () => {
       isMounted = false;
     }
   }, [])
 
   const handleEditClick = () => {
-    setIsToggled(!isToggled);
-    setButtonText((prevText) => (prevText === "Edit Profile" ? "Save & Exit" : "Edit Profile"))
+    update(ref(db, '/user/' + urlParams.profileID), {
+      firstName: firstName,
+      lastName: lastName,
+      location: selectedCity + ", " + selectedState,
+      description: description
+    }).then(() => {
+      setIsToggled(!isToggled);
+      setButtonText((prevText) => (prevText === "Edit Profile" ? "Save & Exit" : "Edit Profile"))
+    })
   }
 
   const handleCityChange = (e) => {
@@ -58,6 +64,10 @@ export function Profile(props) {
     setSelectedState(e.target.value);
   }
 
+  if (!doneLoading) {
+    return (null);
+  }
+  
   return (
     <div id="profile">
       <div className="d-flex flex-column">
@@ -118,15 +128,15 @@ export function Profile(props) {
                 <label htmlFor="inputCity" className="inputTitle">What City and State do you live in?</label>
                 <select id="inputCity" value={selectedCity} className="profile-input-field no-border" onChange={handleCityChange}>
                   <option value="city">City</option>
-                  <option value="seattle">Seattle</option>
-                  <option value="lynnwood">Lynnwood</option>
-                  <option value="shoreline">Shoreline</option>
-                  <option value="tacoma">Tacoma</option>
-                  <option value="bellevue">Bellevue</option>
-                  <option value="everett">Everett</option>
-                  <option value="olympia">Olympia</option>
-                  <option value="redmond">Redmond</option>
-                  <option value="renton">Renton</option>
+                  <option value="Seattle">Seattle</option>
+                  <option value="Lynnwood">Lynnwood</option>
+                  <option value="Shoreline">Shoreline</option>
+                  <option value="Tacoma">Tacoma</option>
+                  <option value="Bellevue">Bellevue</option>
+                  <option value="Everett">Everett</option>
+                  <option value="Olympia">Olympia</option>
+                  <option value="Redmond">Redmond</option>
+                  <option value="Renton">Renton</option>
                 </select>
               </div>
               <div className="d-flex flex-column" style={{ marginLeft: "5em", marginTop: "2.3em" }}>
