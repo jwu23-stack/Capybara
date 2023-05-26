@@ -325,6 +325,11 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   object-fit: contain;
 }
 
+.text-body-secondary {
+  margin-left: 0.2em;
+  font-size: 16px;
+}
+
 .question-card {
   border-color: #475D5B;
   border-width: 2px;
@@ -416,9 +421,12 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 
 .category-card {
   border-radius: 10px;
-  flex-basis: 280px;
   filter: drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2));
   margin-bottom: 2em;
+}
+
+.category-card:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 .col {
@@ -546,7 +554,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 }
 
 #subcategory {
-  margin: 0 5em;
+  margin: 0 6em;
 }
 
 /* Profile page */
@@ -716,17 +724,6 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   margin-right: 120px;
 }
 
-/* Remove */
-/* .container {
-  width: 924px;
-  height: 909px;
-  left: 402px;
-  top: 134px;
-
-  background: #FFFFFF;
-  border-radius: 10px;
-} */
-
 .inputTitle {
   color: #00473e;
   font-weight: bold;
@@ -739,7 +736,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   font-size: 24px;
 }
 
-.profile-setup .row {
+.profile-setup .row, .application-content .row {
   margin-top: 60px;
 }
 
@@ -755,6 +752,15 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 /* Teacher Application */
 .teacher-application {
   background-color: #00473E;
+  padding-top: 4em;
+}
+
+.teacher-app-container {
+  margin-right: 10em;
+  margin-left: 10em;
+  background-color: #FFFFFF;
+  padding: 4em;
+  border-radius: 10px;
 }
 
 .btn-primary {
@@ -780,21 +786,40 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
 }
 
 .btn-block {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
-  margin-top: 100px;
-}
-
-/* application */
-.teacher-application {
-  background-color: #FFFFFF;
 }
 
 .application-intro h2 {
   font-family: 'Outfit', sans-serif;
   color: #00473E;
+  padding-top: 1em;
+}
+
+.application-content {
+  margin-top: 2em;
+}
+
+.application-submitted {
+  margin-right: 12em;
+  margin-left: 12em;
+  padding-top: 5em;
+  padding-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.check-icon {
+  display: flex;
+  justify-content: center;
+  color: #00473e;
 }
 
 .application-intro p {
@@ -806,20 +831,6 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   font-family: 'Outfit', sans-serif;
   color: #00473E;
   font-weight: bold;
-}
-
-.jumbotron {
-  background-color: #00473E;
-}
-
-.container {
-  width: 924px;
-  height: 909px;
-  left: 402px;
-  top: 134px;
-
-  background: #FFFFFF;
-  border-radius: 10px;
 }
 
 /* Teach Info Page */
@@ -1096,9 +1107,16 @@ footer {
   margin-top: auto;
 }
 
-footer>p {
-  color: #FBFBFB;
+footer>p, footer>p a {
+  color: #f2f7f5;
 }
+
+.footer-logo-img {
+  width: 200px;
+  height: 46.81px;
+  margin-bottom: 1em;
+}
+
 
 @media (min-width: 768px) {
   .profile-pic {

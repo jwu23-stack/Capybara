@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card } from './Card.js';
 import { getDatabase, ref, get } from 'firebase/database';
-// TODO: Handle multiple pages (sobbing)
-// TODO: Add header with image
-export function CategoryPage({ subcategoryName }) {
+
+export function CategoryPage() {
   const [subcategoryCards, updateCards] = useState([]);
   const [categoryBanner, setCategoryBanner] = useState("");
   const [categoryName, setCategoryName] = useState("");
@@ -29,7 +28,7 @@ export function CategoryPage({ subcategoryName }) {
         if (snapshot.exists()) {
           response = snapshot.val();
         } else {
-          console.log("No cagtegories!");
+          console.log("No categories!");
         }
       }).then(() => {
         response.forEach((subcat, index) => {
@@ -63,8 +62,8 @@ export function CategoryPage({ subcategoryName }) {
         <img src={categoryBanner} className="img-fluid rounded banner-image" alt={categoryName} />
         <p className="text">{categoryName}</p>
       </div>
-      <div id="subcategory" className="container text-left">
-        <div className="row row-cols-4">
+      <div id="subcategory" className="category-container text-left">
+        <div className="row row-col-3">
           {subcategoryCards}
         </div>
       </div>

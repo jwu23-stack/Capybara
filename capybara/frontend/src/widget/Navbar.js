@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export function NavBar(props) {
+  const [loginStatus, setLoginStatus] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const logoImg = location.pathname === "/" | location.pathname === "/teach";
+
+  useEffect(() => {
+    let status = (sessionStorage.getItem("email")) ? true : false;
+    setLoginStatus(status)
+    console.log(sessionStorage);
+    console.log("Login status on App", status);
+  }, []);
 
   const handleStatusClick = () => {
     if (!props.loginStatus) {
@@ -27,14 +35,14 @@ export function NavBar(props) {
   return (
     <nav className={`navbar navbar-expand-lg ${props.style} d-flex justify-content-evenly`}>
       <div className="d-flex navbar-logo">
-        <Link to="/">
+        <Link to={loginStatus ? "/home" : "/"}>
           <img src={logoImg ? require("../img/navbar-white.png") : require("../img/navbar-black.png")} alt="hobbio" className="navbar-logo-img"></img>
         </Link>
       </div>
 
       <div className="d-flex justify-content-center flex-even me-auto ms-auto">
-        <Link to="/home" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
-          <div className={`p-3 link ${location.pathname === "/home" ? "active-link" : "default-link"}`}>Explore</div>
+        <Link to="/explore" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
+          <div className={`p-3 link ${location.pathname === "/explore" ? "active-link" : "default-link"}`}>Explore</div>
         </Link>
         <Link to="/teach" className="link" style={{ color: "inherit", textDecoration: "inherit", display: "flex" }}>
           <div className={`p-3 link ${location.pathname === "/teach" ? "active-link" : "default-link"}`}>Teach</div>
