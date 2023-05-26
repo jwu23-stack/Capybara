@@ -16,8 +16,9 @@ export function Profile(props) {
   const [isToggled, setIsToggled] = useState(false);
   const [buttonText, setButtonText] = useState("Edit Profile");
   const [doneLoading, updateDoneLoading] = useState(false);
+  const [profilePic, setProfilePic] = useState("");
   const urlParams = useParams();
-  
+
   useEffect(() => {
     let isMounted = true;
     const userRef = ref(db, "/user/" + urlParams.profileID);
@@ -31,14 +32,17 @@ export function Profile(props) {
         updateLastName(data.lastName);
         updateDescription(data.description);
         updateFullName(data.firstName + " " + data.lastName);
+        if (data.profilePic) {
+          setProfilePic(data.profilePic)
+        }
         setSelectedCity(data.location.split(",")[0].trim());
         setSelectedState(data.location.split(",")[1].trim());
         console.log(selectedCity);
       }
     })
-    
+
     updateDoneLoading(true);
-    
+
     return () => {
       isMounted = false;
     }
@@ -67,7 +71,7 @@ export function Profile(props) {
   if (!doneLoading) {
     return (null);
   }
-  
+
   return (
     <div id="profile">
       <div className="d-flex flex-column">
@@ -82,7 +86,7 @@ export function Profile(props) {
         <div className="d-flex flex-row profile-container">
           {/* User Profile Details */}
           <div className={`d-flex flex-column user-details-container ${isToggled ? "hidden" : ""}`}>
-            <img src={require('../img/default_user.jpeg')} alt="default user" className="profile-pic"></img>
+            <img src={!profilePic ? require('../img/default_user.jpeg') : profilePic} alt="default user" className="profile-pic"></img>
             <p className="profile-name">{fullName}</p>
             <div className="d-flex flex-row align-self-start general-info">
               <i className="bi bi-geo-alt details-icon"></i>
