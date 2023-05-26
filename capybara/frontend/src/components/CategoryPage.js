@@ -34,6 +34,10 @@ export function CategoryPage() {
         response.forEach((subcat, index) => {
           cards.push(<Card key={index} goTo={"/subcategory/" + index} title={subcat.name} image={subcat.image}></Card>);
         })
+        // Testing empty cards
+        for (let i = 0; i < 3; i++) {
+
+        }
         if (isMounted) {
           const sortedCards = cards.slice().sort((a, b) => {
             const titleA = a.props.title.toUpperCase();
@@ -63,7 +67,7 @@ export function CategoryPage() {
         <p className="text">{categoryName}</p>
       </div>
       <div id="subcategory" className="category-container text-left">
-        <div className="row row-col-3">
+        <div className="row row-cols-4">
           {subcategoryCards}
         </div>
       </div>

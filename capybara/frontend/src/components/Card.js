@@ -15,7 +15,7 @@ export function Card({ goTo, title, teacher, image, location, level, teacherExp 
             {teacher && <p className="category-card-text">{teacher + " | " + teacherExp}</p>}
             {location &&
               <p className="category-card-text">
-                <i class="bi bi-geo-alt"></i>
+                <i className="bi bi-geo-alt"></i>
                 <small className="text-body-secondary">{location}</small>
               </p>
             }

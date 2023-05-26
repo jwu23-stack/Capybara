@@ -36,6 +36,10 @@ hr {
   color: red;
 }
 
+.primary-color {
+  color: #00473E;
+}
+
 /* Navbar */
 .navbar-landing {
   background-color: #00473e;
@@ -435,8 +439,23 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
-.col {
-  flex-basis: 315px;
+.class-img {
+  width: 100%;
+}
+
+.class-pic-container, .class-details-container {
+  margin: 1em 6em;
+  margin-bottom: 3em;
+}
+
+.award-img {
+  height: 100px;
+  width: 100px;
+}
+
+.teacher-img {
+  width: 120px;
+  height: 120px;
 }
 
 .category-card-title {
@@ -815,6 +834,7 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   margin-left: 12em;
   padding-top: 5em;
   padding-bottom: 3em;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;

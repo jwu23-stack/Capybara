@@ -56,7 +56,7 @@ export function SubcategoryPage() {
         <p className="text">{subcategoryName}</p>
       </div>
       <div id="subcategory" className="category-container text-left">
-        <div className="row row-col-4">
+        <div className="row row-cols-4">
           {classCards}
         </div>
       </div>

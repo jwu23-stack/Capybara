@@ -179,7 +179,7 @@ export function ExplorePage() {
         <p className="text">All Categories</p>
       </div>
       <div id="subcategory" className="category-container text-left">
-        <div className="row row-col-3">
+        <div className="row row-cols-4">
           {categoryCards}
         </div>
       </div>
