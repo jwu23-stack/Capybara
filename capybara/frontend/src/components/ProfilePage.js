@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { getDatabase, ref, onValue, set } from 'firebase/database';
+import { getDatabase, ref, onValue, update } from 'firebase/database';
 import { useParams } from 'react-router-dom';
 
 export function Profile(props) {
@@ -45,7 +45,7 @@ export function Profile(props) {
   }, [])
 
   const handleEditClick = () => {
-    set(ref(db, '/user/' + urlParams.profileID), {
+    update(ref(db, '/user/' + urlParams.profileID), {
       firstName: firstName,
       lastName: lastName,
       location: selectedCity + ", " + selectedState,

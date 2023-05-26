@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, update } from 'firebase/database';
 
 export function Onboarding() {
   const [firstName, updateFirstName] = useState("");
@@ -13,7 +13,7 @@ export function Onboarding() {
   const handleSetup = (event) => {
     event.preventDefault();
     const db = getDatabase();
-    set(ref(db, 'user/' + sessionStorage.getItem("uid")), {
+    update(ref(db, 'user/' + sessionStorage.getItem("uid")), {
       firstName: firstName,
       lastName: lastName,
       location: city + ", " + state,
