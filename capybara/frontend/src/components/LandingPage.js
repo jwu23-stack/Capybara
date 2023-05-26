@@ -53,7 +53,7 @@ export function Landing() {
 
       {/* How it works */}
       <div className="d-flex flex-row align-items-center" id="tutorial">
-        <div className="d-flex flex-column tutorial-container">
+        <div className="d-flex flex-column">
           <h2>How it works</h2>
           <p className="tutorial-text">When you sign up for Hobbio, you're automatically a learner. If you feel passionate about a specific hobby, you can apply to be a teacher through a simple form. </p>
         </div>

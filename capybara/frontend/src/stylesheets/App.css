@@ -353,10 +353,6 @@ input.signup-style::selection, input.signup-style::placeholder, input.signup-sty
   margin-bottom: 2em;
 }
 
-.tutorial-container {
-  margin-left: 6em;
-}
-
 .tutorial-text {
   overflow: hidden;
   text-overflow: ellipsis;
