@@ -6,7 +6,7 @@ export function NavBar(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const logoImg = location.pathname === "/" | location.pathname === "/teach";
+  const logoImg = location.pathname === "/" | location.pathname === "/teach" | location.pathname === "/application";
 
   useEffect(() => {
     let status = (sessionStorage.getItem("email")) ? true : false;
@@ -58,7 +58,7 @@ export function NavBar(props) {
           </Link>
         ) : (
           <div>
-            <button type="button" onClick={handleStatusClick2} className={`btn ${(location.pathname === "/" | location.pathname === "/teach") ? "btn-outline-light" : "btn-outline-secondary btn-hover"} px-3 me-3 auth-btn`}>Sign Up</button>
+            <button type="button" onClick={handleStatusClick2} className={`btn ${(location.pathname === "/" | location.pathname === "/teach" | location.pathname === "/application") ? "btn-outline-light" : "btn-outline-secondary btn-hover"} px-3 me-3 auth-btn`}>Sign Up</button>
             <button type="button" onClick={handleStatusClick} className="btn btn-warning px-3 me-5 auth-btn">Sign In</button>
           </div>
         )}

@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export function Application() {
+
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  }
   return (
     <div className="teacher-application">
       <div className="teacher-app-container">
@@ -145,7 +149,7 @@ export function Application() {
           </form>
           <div className="btn-block">
             <Link to="/submitted">
-              <button type="button" className="btn btn-primary">Submit</button>
+              <button type="button" className="btn btn-primary" onClick={handleClick}>Submit</button>
             </Link>
           </div>
         </div>
@@ -154,7 +158,7 @@ export function Application() {
   )
 }
 
-export function AppSubmitted() {
+export function AppSubmitted(props) {
   return (
     <div className="application-submitted">
       <div className="check-icon">
@@ -164,7 +168,7 @@ export function AppSubmitted() {
       <h2 className="text-center" style={{color: "#00473e"}}>Your application has been successfully submitted!</h2>
       <p className="text-center" style={{color: "#00473e"}}>We'll let you know the decision in 1-3 business days.</p>
       <div className="btn-block">
-        <Link to="/home">
+        <Link to={props.loginStatus ? "/home" : "/"}>
           <button type="button" className="btn btn-primary">Home</button>
         </Link>
       </div>

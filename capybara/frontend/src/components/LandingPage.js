@@ -108,7 +108,7 @@ export function Landing() {
               </h3>
               <div id="collapseThree" className="collapse collapse-container">
                 <div className="card-body">
-                  <span className="collapse-text">You can sign up to be a teacher by going onto the teacher's tab. You can learn more about the expectations of being a teacher and apply to become one. By submitting the application form, we will contact you to let you know your status.</span>
+                  <span className="collapse-text">You decide how many classes you want to take. After your first class, you and the respective teacher can agree upon a schedule moving forward.</span>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@ export function Landing() {
               </h3>
               <div id="collapseTwo" className="collapse collapse-container">
                 <div className="card-body">
-                  <span className="collapse-text"></span>
+                  <span className="collapse-text">Once you find a teacher you'd like to take a class with, you can "Make an Appointment". The teacher will then receive this and confirm the class.</span>
                 </div>
               </div>
             </div>
@@ -144,7 +144,7 @@ export function Landing() {
               </h3>
               <div id="collapseFour" className="collapse collapse-container">
                 <div className="card-body">
-                  <span className="collapse-text">You can sign up to be a teacher by going onto the teacher's tab. You can learn more about the expectations of being a teacher and apply to become one. By submitting the application form, we will contact you to let you know your status.</span>
+                  <span className="collapse-text">Whatever you want! Click on the "Explore" page to see a full list of available classes and find a class that peaks your interest.</span>
                 </div>
               </div>
             </div>
