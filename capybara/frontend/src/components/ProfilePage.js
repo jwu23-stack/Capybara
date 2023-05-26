@@ -116,7 +116,7 @@ export function Profile(props) {
         {/* Edit Profile Settings */}
         <div className="profile-background d-flex flex-column align-items-center">
           <div className={`${!isToggled ? "hidden" : ""} d-flex flex-column align-items-center`} style={{ width: "100%" }}>
-            <img src={require('../img/default_user.jpeg')} alt="default user" className="profile-pic"></img>
+            <img src={!profilePic ? require('../img/default_user.jpeg') : profilePic} alt="default user" className="profile-pic"></img>
             <div className="d-flex flex-row flex-nowrap" style={{ marginTop: "3em" }}>
               <div className="d-flex flex-column">
                 <label htmlFor="inlineFormInputName" className="inputTitle">First Name</label>
