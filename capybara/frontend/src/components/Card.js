@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import "bootstrap-icons/font/bootstrap-icons.css";
 // Props: title, subtitle (optional), location (optional), image, onClick
 export function Card({ goTo, title, teacher, image, location, level, teacherExp }) {
   return (
@@ -14,6 +15,7 @@ export function Card({ goTo, title, teacher, image, location, level, teacherExp 
             {teacher && <p className="category-card-text">{teacher + " | " + teacherExp}</p>}
             {location &&
               <p className="category-card-text">
+                <i class="bi bi-geo-alt"></i>
                 <small className="text-body-secondary">{location}</small>
               </p>
             }
